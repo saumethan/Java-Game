@@ -1,3 +1,8 @@
+/*
+ * @author Ethan Saum (2304185) @saumethan272 
+ * 19/11/2024
+ */
+
 public class Puzzle implements IChallenge {
 
     // Variables 
