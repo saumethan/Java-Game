@@ -9,7 +9,7 @@ public abstract class RoomBuilder {
 
     // Variables 
     protected String description;
-    protected ArrayList<ICHallenge> challenges;
+    protected ArrayList<IChallenge> challenges;
 
     public RoomBuilder setDescription(String description) {
         this.description = description;
