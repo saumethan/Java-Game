@@ -3,7 +3,7 @@
  * 19/11/2024
  */
 
-public class Player {
+public class Player implements IHealth {
 
     // Variables
     private Weapon weapon;
