@@ -1,7 +1,6 @@
-package UI;
+package ui;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class GameUI {
 
