@@ -3,8 +3,6 @@
  * 19/11/2024
  */
 
-import java.util.ArrayList;
-
 public class UltimateRoomBuilder extends RoomBuilder {
     public UltimateRoomBuilder addSkillChallenge(Puzzle puzzle) {
         challenges.add(puzzle);

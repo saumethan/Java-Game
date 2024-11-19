@@ -3,8 +3,6 @@
  * 19/11/2024
  */
 
-import java.util.ArrayList;
-
 public class PhysicalRoomBuilder extends RoomBuilder {
     public PhysicalRoomBuilder addPhysicalChallenge(Enemy enemy) {
         challenges.add(enemy);
