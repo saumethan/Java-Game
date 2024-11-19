@@ -1,5 +1,5 @@
 public interface IHealth {
 
     int getHealth();
-    Void heal();
+    void heal(int healAmount);
 }
