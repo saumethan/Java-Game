@@ -27,6 +27,10 @@ public class Puzzle implements IChallenge {
         return question;
     }
 
+    public String getAnswer() {
+        return answer;
+    }
+
     public int getAttemps() {
         return attemps;
     }
