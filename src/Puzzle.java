@@ -6,7 +6,6 @@
 public class Puzzle implements IChallenge {
 
     // Variables 
-    private String description;
     private String question;
     private String answer;
     private int attemps;
@@ -20,10 +19,6 @@ public class Puzzle implements IChallenge {
     }
 
     public String getDescription() {
-        return description;
-    }
-
-    public String getQuestion() {
         return question;
     }
 

@@ -20,7 +20,7 @@ public class Room {
         challenges = new ArrayList<>();
     }
 
-    public String getDescripString() {
+    public String getDescription() {
         return description;
     }
 

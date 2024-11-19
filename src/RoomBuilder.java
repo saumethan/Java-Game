@@ -11,6 +11,10 @@ public abstract class RoomBuilder {
     protected String description;
     protected ArrayList<IChallenge> challenges;
 
+    public RoomBuilder() {
+        challenges = new ArrayList<>();
+    }
+
     public RoomBuilder setDescription(String description) {
         this.description = description;
         return this;
