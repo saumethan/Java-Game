@@ -9,7 +9,7 @@ public class Room {
 
     // Variables
     private String description;
-    private ArrayList<ICHallenge> challenges;
+    private ArrayList<IChallenge> challenges;
 
     public Room(String description) {
         this.description = description;
@@ -20,7 +20,7 @@ public class Room {
         return description;
     }
 
-    public ArrayList<ICHallenge> getChallenges() {
+    public ArrayList<IChallenge> getChallenges() {
         return challenges;
     }
 }
