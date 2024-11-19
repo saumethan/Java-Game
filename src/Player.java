@@ -9,11 +9,13 @@ public class Player {
     private Weapon weapon;
     private int health;
     private int level;
+    private Boolean isAlive;
     private static Player instance;
 
     private Player(){
         health = 100;
         level = 1;
+        isAlive = true;
     }
 
     public static Player getInstance() {
@@ -23,8 +25,31 @@ public class Player {
         return instance;
     }
 
+    public int getHealth() {
+        return health;
+    }
+
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
 
+    public void takeDamage(int amount) {
+        if (health - amount > 0) {
+            health-=amount;
+        } else {
+            isAlive = false;
+        }
+    }
+
+    public int attack() {
+        return weapon.getBaseDamage();
+    }
+
+    public void heal(int healAmount) {
+        if (health + healAmount < 100) {
+            health += healAmount;
+        } else {
+            health = 100;
+        }
+    }
 }
