@@ -39,7 +39,7 @@ public class Enemy implements IChallenge {
     }
 
     public int attack() {
-        return weapon.getDamage();
+        return weapon.getBaseDamage();
     }
 
     public Boolean isCompleted() {
