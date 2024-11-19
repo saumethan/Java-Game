@@ -26,6 +26,10 @@ public class Enemy implements IChallenge, IHealth {
         return health;
     }
 
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
     public void attempt(int amount) {
         takeDamage(amount);
     }
