@@ -4,18 +4,17 @@
  */
 
 public class PhysicalRoomBuilder extends RoomBuilder {
+
+    private Enemy enemy;
+
     public PhysicalRoomBuilder addPhysicalChallenge(Enemy enemy) {
-        challenges.add(enemy);
+        this.enemy = enemy;
         return this;
     }
 
     @Override
     public Room build() {
-        Room room = new Room(description);
-        for (IChallenge challenge : challenges) {
-            room.addChallenge(challenge);
-        }
-        return room;
+        return new Room(description, null, enemy);
     }
 }
 

@@ -4,18 +4,17 @@
  */
 
 public class SkillRoomBuilder extends RoomBuilder {
+
+    private Puzzle puzzle;
+
     public SkillRoomBuilder addSkillChallenge(Puzzle puzzle) {
-        challenges.add(puzzle);
+        this.puzzle = puzzle;
         return this;
     }
 
     @Override
     public Room build() {
-        Room room = new Room(description);
-        for (IChallenge challenge : challenges) {
-            room.addChallenge(challenge);
-        }
-        return room;
+        return new Room(description, puzzle, null);
     }
 }
 

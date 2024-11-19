@@ -3,28 +3,28 @@
  * 19/11/2024
  */
 
-import java.util.ArrayList;
-
 public class Room {
 
     // Variables
     private String description;
-    private ArrayList<IChallenge> challenges;
-
-    public void addChallenge(IChallenge challenge) {
-        challenges.add(challenge);
-    }
+    private Puzzle puzzle; // Null for rooms without puzzles
+    private Enemy enemy; // Null for rooms without enimies
     
-    public Room(String description) {
+    public Room(String description, Puzzle puzzle, Enemy enemy) {
         this.description = description;
-        challenges = new ArrayList<>();
+        this.puzzle = puzzle;
+        this.enemy = enemy;
     }
 
-    public String getDescripString() {
+    public String getDescription() {
         return description;
     }
 
-    public ArrayList<IChallenge> getChallenges() {
-        return challenges;
+    public Puzzle getPuzzle() {
+        return puzzle;
+    }
+
+    public Enemy getEnemy() {
+        return enemy;
     }
 }
