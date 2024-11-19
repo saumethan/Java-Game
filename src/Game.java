@@ -17,7 +17,7 @@ public class Game {
 
     // Constructor
     public Game() {
-        player = new Player();
+        player = Player.getInstance();
         challenges = new ArrayList<>();
         userCommands = new ArrayList<>();
         commands = new ArrayList<>();
