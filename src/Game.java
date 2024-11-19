@@ -11,7 +11,7 @@ public class Game {
     // Variables 
     private Player player;
     private Room[][] room ; 
-    private ArrayList<ICHallenge> challenges;
+    private ArrayList<IChallenge> challenges;
     private ArrayList<String> userCommands;
     private ArrayList<ICommand> commands;
 
