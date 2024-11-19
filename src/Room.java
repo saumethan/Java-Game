@@ -11,6 +11,10 @@ public class Room {
     private String description;
     private ArrayList<IChallenge> challenges;
 
+    public void addChallenge(IChallenge challenge) {
+        challenges.add(challenge);
+    }
+    
     public Room(String description) {
         this.description = description;
         challenges = new ArrayList<>();
