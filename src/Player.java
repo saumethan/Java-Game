@@ -29,6 +29,14 @@ public class Player {
         return health;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public Boolean isAlive() {
+        return isAlive;
+    }
+
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
