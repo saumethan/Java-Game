@@ -22,6 +22,10 @@ public class Puzzle implements IChallenge {
         return question;
     }
 
+    public int getAttemps() {
+        return attemps;
+    }
+
     public void attempt(int amount) {
         attemps++;
         if (amount == Integer.parseInt(answer)) {
