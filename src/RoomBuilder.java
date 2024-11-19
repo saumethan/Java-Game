@@ -3,13 +3,21 @@
  * 19/11/2024
  */
 
-public abstract class RoomBuilder {
+import java.util.ArrayList;
 
-    // Variables 
+public abstract class RoomBuilder {
+    
+     // Variables 
     protected String description;
+    protected ArrayList<IChallenge> challenges;
 
     public RoomBuilder setDescription(String description) {
         this.description = description;
+        return this;
+    }
+
+    public RoomBuilder addChallenge(IChallenge challenge) {
+        challenges.add(challenge);
         return this;
     }
 

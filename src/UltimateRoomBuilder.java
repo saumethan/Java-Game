@@ -4,24 +4,22 @@
  */
 
 public class UltimateRoomBuilder extends RoomBuilder {
-
-    private Puzzle puzzle;
-    private Enemy enemy;
-
     public UltimateRoomBuilder addSkillChallenge(Puzzle puzzle) {
-        this.puzzle = puzzle;
+        challenges.add(puzzle);
         return this;
     }
 
     public UltimateRoomBuilder addPhysicalChallenge(Enemy enemy) {
-        this.enemy = enemy;
+        challenges.add(enemy);
         return this;
     }
 
     @Override
     public Room build() {
-        return new Room(description, puzzle, enemy);
+        Room room = new Room(description);
+        for (IChallenge challenge : challenges) {
+            room.addChallenge(challenge);
+        }
+        return room;
     }
-}
-
-
+} 
