@@ -3,7 +3,7 @@
  * 19/11/2024
  */
 
-public class Enemy implements IChallenge {
+public class Enemy implements IChallenge, IHealth {
 
     // Variables
     private String description;
@@ -46,7 +46,11 @@ public class Enemy implements IChallenge {
         return isCompleted;
     }
 
-    public void addHealth(int addedHealth) {
-        health += addedHealth;
+    public void heal(int healAmount) {
+        if (health + healAmount < 100) {
+            health += healAmount;
+        } else {
+            health = 100;
+        }
     }
 }
