@@ -6,7 +6,6 @@
 public class Player {
 
     // Variables
-    private String name;
     private Weapon weapon;
     private int health;
     private int level;
@@ -23,4 +22,9 @@ public class Player {
         }
         return instance;
     }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
 }
