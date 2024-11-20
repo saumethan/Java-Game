@@ -87,6 +87,7 @@ public class Game implements UIObserver {
         commands.add(command);
     }
 
+
     public void executeCommands(String commandInput) {
         int index = -1;
         String normalizedInput = commandInput.toLowerCase();
@@ -106,15 +107,23 @@ public class Game implements UIObserver {
         }
     }
 
+    private void startCurrentRoomChallenge() {
+        int[] currentRoom = player.getCurrentRoom(); 
+        int row = currentRoom[0];
+        int col = currentRoom[1];
+    
+        Room room = roomMap[row][col];
+    
+        room.startChallenge();
+    }
+
     private void playerCommands(Player player) {
-        addCommand("Start challenge", roomMap[1][1]::startChallenge);
+        addCommand("Start challenge", this::startCurrentRoomChallenge);
         addCommand("Move right", player::moveRight);
         addCommand("Move left", player::moveLeft);
         addCommand("Move up", player::moveUp);
         addCommand("Move down", player::moveDown);
     }
-
-    //private void updateRoomCommands
 
     public void printRooms() {
         for (int row = 0; row < rows; row++) {
@@ -152,7 +161,7 @@ public class Game implements UIObserver {
         int col = currentRoom[1];
 
         Room room = roomMap[row][col];
-        System.out.println("Player starts in room at (" + row + ", " + col + "): " + room.getDescription());
+        System.out.println("You are in a room at (" + row + ", " + col + "): " + room.getDescription());
         System.out.println("Challenges in this room:");
         for (IChallenge challenge : room.getChallenges()) {
             System.out.println(" - " + challenge.getDescription());
