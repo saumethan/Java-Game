@@ -6,8 +6,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import ui.GameUI;
-
 public class Room {
 
      // Variables
