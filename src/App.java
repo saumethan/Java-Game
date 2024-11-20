@@ -1,7 +1,6 @@
 public class App {
     public static void main(String[] args) throws Exception {
         Game game = new Game();
-        game.populateRooms();
-        game.printRooms();
+        game.startGame();
     }
 }
