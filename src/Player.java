@@ -58,20 +58,36 @@ public class Player implements IHealth {
     }
 
     public void moveRight() {
-        currentRoom[0] += 1;
-        System.out.println("I've moved!!");
+        if (currentRoom[0] < 3) {
+            currentRoom[0] += 1;
+        } else {
+            System.out.println("Can't move right");
+        }
     }
 
     public void moveLeft() {
-        currentRoom[0] -= 1;
+        if (currentRoom[0] > 0) {
+            currentRoom[0] -= 1;
+        } else {
+            System.out.println("Can't move left");
+        }
+
     }
 
     public void moveUp() {
-        currentRoom[1] -= 1;
+        if (currentRoom[1] > 0) {
+            currentRoom[1] -= 1;
+        } else {
+            System.out.println("Can't move up");
+        }
     }
 
     public void moveDown() {
-        currentRoom[1] += 1;
+        if (currentRoom[1] < 3) {
+            currentRoom[1] += 1;
+        } else {
+            System.out.println("Can't move down");
+        }
     }
 
     public int attack() {
