@@ -4,6 +4,9 @@
  */
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import ui.GameUI;
 
 public class Room {
 
@@ -23,6 +26,24 @@ public class Room {
     public String getDescription() {
         return description;
     }
+
+    public void startChallenge(GameUI gameUI) {
+    for (IChallenge challenge : challenges) {
+        if (challenge instanceof Puzzle) {
+            Puzzle puzzle = (Puzzle) challenge;
+            System.out.println("You encounter a puzzle: " + puzzle.getDescription());
+            Scanner scanner = new Scanner(System.in); 
+            System.out.print("Your answer: ");
+            String userAnswer = scanner.nextLine();
+            if (puzzle.attempt(userAnswer)) {
+                System.out.println("Correct answer!");
+            } else {
+                System.out.println("Wrong answer.");
+            }
+        }
+    }
+}
+
 
     public ArrayList<IChallenge> getChallenges() {
         return challenges;

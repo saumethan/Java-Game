@@ -90,6 +90,18 @@ public class Player implements IHealth {
         }
     }
 
+    public void answerChallenge(String answer, IChallenge challenge) {
+        if (challenge instanceof Puzzle) {
+            Puzzle puzzle = (Puzzle) challenge;
+            puzzle.attempt(answer);
+            if (puzzle.isCompleted()) {
+                System.out.println("Correct answer!");
+            } else {
+                System.out.println("Wrong answer");
+            }
+        }
+    }
+
     public int attack() {
         return weapon.getBaseDamage();
     }
