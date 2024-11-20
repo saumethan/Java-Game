@@ -4,6 +4,8 @@
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import ui.GameUI;
 import ui.UIObserver;
 
 public class Game implements UIObserver {
@@ -16,6 +18,8 @@ public class Game implements UIObserver {
     private ArrayList<ICommand> commands;
     private int rows;
     private int cols;
+    private GameUI gameUI;
+    private Boolean gameRunning;
 
     // Constructor
     public Game() {
@@ -26,6 +30,17 @@ public class Game implements UIObserver {
         rows = 3;
         cols = 3;
         roomMap = new Room[rows][cols];
+        gameUI = new GameUI();
+        gameUI.addObserver(this);
+        gameRunning = true;
+    }
+
+    public void stopGame() {
+        gameRunning = false;
+    }
+
+    public boolean isGameRunning() {
+        return gameRunning;
     }
 
     public void populateRooms() {
@@ -60,20 +75,11 @@ public class Game implements UIObserver {
         // Add the players commands to move
         MoveCommands((Player) player);
 
-        Player player = Player.getInstance();
-        int[] currentRoom = player.getCurrentRoom();
-        int row = currentRoom[0];
-        int col = currentRoom[1];
-    
-        // get the players room 
-        Room room = roomMap[row][col];
+        printCurrentRoom();
 
-        System.out.println("Player starts in room at (" + row + ", " + col + "): " + room.getDescription());
-        System.out.println("Challenges in this room:");
-        for (IChallenge challenge : room.getChallenges()) {
-            System.out.println(" - " + challenge.getDescription());
-        }
+        gameUI.getInput();
 
+        printCurrentRoom();
     }
 
     public void addCommand(String name, ICommand command) {
@@ -133,6 +139,22 @@ public class Game implements UIObserver {
     @Override
     public void update(String commands) {
         executeCommands(commands);
+        printCurrentRoom();
+    }
+
+    public void printCurrentRoom() {
+        Player player = Player.getInstance();
+        int[] currentRoom = player.getCurrentRoom();
+        int row = currentRoom[0];
+        int col = currentRoom[1];
+
+        Room room = roomMap[row][col];
+        System.out.println("Player starts in room at (" + row + ", " + col + "): " + room.getDescription());
+        System.out.println("Challenges in this room:");
+        for (IChallenge challenge : room.getChallenges()) {
+            System.out.println(" - " + challenge.getDescription());
+        }
+        System.out.println(Arrays.toString(player.getCurrentRoom()));
     }
 
     public void summary() {

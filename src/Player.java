@@ -15,8 +15,8 @@ public class Player implements IHealth {
 
     private Player() {
         currentRoom = new int[2];
-        currentRoom[0] = 2;
-        currentRoom[1] = 2;
+        currentRoom[0] = 1;
+        currentRoom[1] = 1;
         health = 100;
         level = 1;
         isAlive = true;
@@ -59,6 +59,7 @@ public class Player implements IHealth {
 
     public void moveRight() {
         currentRoom[0] += 1;
+        System.out.println("I've moved!!");
     }
 
     public void moveLeft() {
