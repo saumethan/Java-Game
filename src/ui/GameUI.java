@@ -1,6 +1,7 @@
 package ui;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GameUI {
 
@@ -23,6 +24,18 @@ public class GameUI {
     }
 
     public void getInput() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Enter a command:");
+            String input = scanner.nextLine().trim().toLowerCase();
+            notifyObservers(input);
+
+            if (input.equals("exit")) {
+                System.out.println("Exiting the game.");
+                break;
+            }
+        }
+        scanner.close();
     }
 
 }

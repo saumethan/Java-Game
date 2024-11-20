@@ -3,25 +3,26 @@
  * 19/11/2024
  */
 
-//import java.util.ArrayList;
+import java.util.ArrayList;
+import ui.UIObserver;
 
-public class Game {
+public class Game implements UIObserver {
 
     // Variables 
-    //private Player player;
+    private Player player;
     private Room[][] roomMap ; 
-    //private ArrayList<IChallenge> challenges;
-    //private ArrayList<String> userCommands;
-    //private ArrayList<ICommand> commands;
+    private ArrayList<IChallenge> challenges;
+    private ArrayList<String> userCommands;
+    private ArrayList<ICommand> commands;
     private int rows;
     private int cols;
 
     // Constructor
     public Game() {
-        // player = Player.getInstance();
-        // challenges = new ArrayList<>();
-        // userCommands = new ArrayList<>();
-        // commands = new ArrayList<>();
+        player = Player.getInstance();
+        challenges = new ArrayList<>();
+        userCommands = new ArrayList<>();
+        commands = new ArrayList<>();
         rows = 3;
         cols = 3;
         roomMap = new Room[rows][cols];
@@ -33,17 +34,17 @@ public class Game {
                 Room room;
                 if ((row + col) % 3 == 0) {
                     room = new PhysicalRoomBuilder()
-                        .setDescription("A physical challenge room at (" + row + ", " + col + ")")
+                        .setDescription("A physical challenge room")
                         .addChallenge(new Enemy("Ogre", new Weapon("Sword", 10)))
                         .build();
                 } else if ((row + col) % 3 == 1) {
                     room = new SkillRoomBuilder()
-                        .setDescription("A skill challenge room at (" + row + ", " + col + ")")
+                        .setDescription("A skill challenge room")
                         .addChallenge(new Puzzle("What is 5 + 3?", "8"))
                         .build();
                 } else {
                     room = new UltimateRoomBuilder()
-                        .setDescription("An ultimate challenge room at (" + row + ", " + col + ")")
+                        .setDescription("An ultimate challenge room")
                         .addChallenge(new Puzzle("What is 7 * 6?", "42"))
                         .addChallenge(new Enemy("Ogre", new Weapon("Sword", 10)))
                         .build();
@@ -54,16 +55,56 @@ public class Game {
     }
 
     public void startGame() {
+        // Populate the room map
         populateRooms();
+        // Add the players commands to move
+        MoveCommands((Player) player);
+
+        Player player = Player.getInstance();
+        int[] currentRoom = player.getCurrentRoom();
+        int row = currentRoom[0];
+        int col = currentRoom[1];
+    
+        // get the players room 
+        Room room = roomMap[row][col];
+
+        System.out.println("Player starts in room at (" + row + ", " + col + "): " + room.getDescription());
+        System.out.println("Challenges in this room:");
+        for (IChallenge challenge : room.getChallenges()) {
+            System.out.println(" - " + challenge.getDescription());
+        }
+
+    }
+
+    public void addCommand(String name, ICommand command) {
+        userCommands.add(name.toLowerCase());
+        commands.add(command);
+    }
+
+    public void executeCommands(String commandInput) {
+        int index = -1;
+        String normalizedInput = commandInput.toLowerCase();
+
+        for (int i=0; i < userCommands.size(); i++) {
+            if (userCommands.get(i).equals(normalizedInput)) {
+                index = i;
+                break;
+            }
         
+        }
+
+        if (index > -1) {
+            this.commands.get(index).execute();
+        } else {
+            System.out.println("Command not recognized: " + commandInput);
+        }
     }
 
-    public void executeCommands() {
-
-    }
-
-    public void update() {
-
+    private void MoveCommands(Player player) {
+        addCommand("Move right", player::moveRight);
+        addCommand("Move left", player::moveLeft);
+        addCommand("Move up", player::moveUp);
+        addCommand("Move down", player::moveDown);
     }
 
     public void printRooms() {
@@ -87,6 +128,11 @@ public class Game {
                 System.out.println();
             }
         }
+    }
+
+    @Override
+    public void update(String commands) {
+        executeCommands(commands);
     }
 
     public void summary() {
