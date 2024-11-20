@@ -30,10 +30,12 @@ public class Puzzle implements IChallenge {
         return attemps;
     }
 
-    public void attempt(int amount) {
+    public Boolean attempt(String amount) {
         attemps++;
-        if (amount == Integer.parseInt(answer)) {
-            isCompleted = true;
+        if (amount == answer) {
+            return true;
+        } else {
+            return false;
         }
     }
 

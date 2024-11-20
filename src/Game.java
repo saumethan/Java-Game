@@ -73,7 +73,7 @@ public class Game implements UIObserver {
         // Populate the room map
         populateRooms();
         // Add the players commands to move
-        MoveCommands((Player) player);
+        playerCommands((Player) player);
 
         printCurrentRoom();
 
@@ -106,12 +106,15 @@ public class Game implements UIObserver {
         }
     }
 
-    private void MoveCommands(Player player) {
+    private void playerCommands(Player player) {
+        addCommand("Start challenge", roomMap[1][1]::startChallenge);
         addCommand("Move right", player::moveRight);
         addCommand("Move left", player::moveLeft);
         addCommand("Move up", player::moveUp);
         addCommand("Move down", player::moveDown);
     }
+
+    //private void updateRoomCommands
 
     public void printRooms() {
         for (int row = 0; row < rows; row++) {

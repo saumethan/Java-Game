@@ -27,7 +27,7 @@ public class Room {
         return description;
     }
 
-    public void startChallenge(GameUI gameUI) {
+    public void startChallenge() {
     for (IChallenge challenge : challenges) {
         if (challenge instanceof Puzzle) {
             Puzzle puzzle = (Puzzle) challenge;
@@ -37,8 +37,12 @@ public class Room {
             String userAnswer = scanner.nextLine();
             if (puzzle.attempt(userAnswer)) {
                 System.out.println("Correct answer!");
+                System.out.println(puzzle.getAnswer());
+                System.out.println(userAnswer);
             } else {
                 System.out.println("Wrong answer.");
+                System.out.println(puzzle.getAnswer());
+                System.out.println(userAnswer);
             }
         }
     }
