@@ -32,7 +32,7 @@ public class Puzzle implements IChallenge {
 
     public Boolean attempt(String amount) {
         attemps++;
-        if (amount == answer) {
+        if (amount.equals(answer)) {
             return true;
         } else {
             return false;
