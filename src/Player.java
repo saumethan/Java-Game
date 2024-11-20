@@ -41,14 +41,6 @@ public class Player implements IHealth {
         return currentRoom;
     }
 
-    public int getCurrentRoomRow() {
-        return currentRoom[0];
-    }
-
-    public int getCurrentRoomCol() {
-        return currentRoom[1];
-    }
-
     public Boolean isAlive() {
         return isAlive;
     }
@@ -63,6 +55,22 @@ public class Player implements IHealth {
         } else {
             isAlive = false;
         }
+    }
+
+    public void moveRight() {
+        currentRoom[0] += 1;
+    }
+
+    public void moveLeft() {
+        currentRoom[0] -= 1;
+    }
+
+    public void moveUp() {
+        currentRoom[1] -= 1;
+    }
+
+    public void moveDown() {
+        currentRoom[1] += 1;
     }
 
     public int attack() {
