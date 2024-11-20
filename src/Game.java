@@ -54,7 +54,8 @@ public class Game {
     }
 
     public void startGame() {
-
+        populateRooms();
+        
     }
 
     public void executeCommands() {

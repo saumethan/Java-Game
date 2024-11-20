@@ -3,18 +3,31 @@
  * 19/11/2024
  */
 
-public class UltimateRoomBuilder extends RoomBuilder {
-    public UltimateRoomBuilder addSkillChallenge(Puzzle puzzle) {
+import java.util.ArrayList;
+
+public class UltimateRoomBuilder {
+
+    private String description;
+    private ArrayList<IChallenge> challenges;
+
+    public UltimateRoomBuilder() {
+        challenges = new ArrayList<>();
+    }
+    public UltimateRoomBuilder setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public UltimateRoomBuilder addChallenge(Puzzle puzzle) {
         challenges.add(puzzle);
         return this;
     }
 
-    public UltimateRoomBuilder addPhysicalChallenge(Enemy enemy) {
+    public UltimateRoomBuilder addChallenge(Enemy enemy) {
         challenges.add(enemy);
         return this;
     }
 
-    @Override
     public Room build() {
         Room room = new Room(description);
         for (IChallenge challenge : challenges) {
