@@ -6,13 +6,17 @@
 public class Player implements IHealth {
 
     // Variables
+    private int[] currentRoom;
     private Weapon weapon;
     private int health;
     private int level;
     private Boolean isAlive;
     private static Player instance;
 
-    private Player(){
+    private Player() {
+        currentRoom = new int[2];
+        currentRoom[0] = 2;
+        currentRoom[1] = 2;
         health = 100;
         level = 1;
         isAlive = true;
@@ -31,6 +35,18 @@ public class Player implements IHealth {
 
     public int getLevel() {
         return level;
+    }
+
+    public int[] getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public int getCurrentRoomRow() {
+        return currentRoom[0];
+    }
+
+    public int getCurrentRoomCol() {
+        return currentRoom[1];
     }
 
     public Boolean isAlive() {
