@@ -12,7 +12,7 @@ public class Game implements UIObserver {
 
     // Variables 
     private Player player;
-    private Room[][] roomMap ; 
+    private Room[][] roomMap; 
     private ArrayList<IChallenge> challenges;
     private ArrayList<String> userCommands;
     private ArrayList<ICommand> commands;
