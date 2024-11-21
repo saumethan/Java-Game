@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Room {
 
-     // Variables
+    // Variables
     private String description;
     private ArrayList<IChallenge> challenges;
 

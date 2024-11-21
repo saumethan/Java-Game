@@ -74,7 +74,7 @@ public class Player implements IHealth {
 
     }
 
-    public void moveUp() {
+    public void moveForward() {
         if (currentRoom[1] > 0) {
             currentRoom[1] -= 1;
         } else {
@@ -82,7 +82,7 @@ public class Player implements IHealth {
         }
     }
 
-    public void moveDown() {
+    public void moveBack() {
         if (currentRoom[1] < 3) {
             currentRoom[1] += 1;
         } else {
