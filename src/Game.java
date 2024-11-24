@@ -24,6 +24,7 @@ public class Game implements UIObserver {
     // Constructor
     public Game() {
         player = Player.getInstance();
+        player.setWeapon(new Weapon("Knife", 45));
         challenges = new ArrayList<>();
         userCommands = new ArrayList<>();
         commands = new ArrayList<>();
@@ -111,7 +112,7 @@ public class Game implements UIObserver {
     
         Room room = roomMap[row][col];
     
-        room.startChallenge();
+        room.startChallenge(player);
     }
 
     private void playerCommands(Player player) {
