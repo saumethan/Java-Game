@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 public class CustomFileReader {
 
-    public static ArrayList<IChallenge> readChallenges(String filePath) {
+    public static ArrayList<Puzzle> readChallenges(String filePath) {
 
-        ArrayList<IChallenge> challenges = new ArrayList<>();
+        ArrayList<Puzzle> challenges = new ArrayList<>();
 
         try {
             File myFile = new File(filePath);

@@ -19,20 +19,19 @@ public class Game implements UIObserver {
     // Variables 
     private Player player;
     private Room[][] roomMap; 
-    private ArrayList<IChallenge> challenges;
+    private ArrayList<Puzzle> challenges;
     private ArrayList<String> userCommands;
     private ArrayList<ICommand> commands;
     private int rows;
     private int cols;
     private GameUI gameUI;
     private Boolean gameRunning;
-    private CustomFileReader fileReader;
 
     // Constructor
     public Game() {
         player = Player.getInstance();
         player.setWeapon(new Weapon("Knife", 45));
-        challenges = new ArrayList<>();
+        challenges = CustomFileReader.readChallenges("testFile.txt");
         userCommands = new ArrayList<>();
         commands = new ArrayList<>();
         rows = 3;
@@ -63,7 +62,7 @@ public class Game implements UIObserver {
                 } else if ((row + col) % 3 == 1) {
                     room = new SkillRoomBuilder()
                         .setDescription("A skill challenge room")
-                        .addChallenge(new Puzzle("What is 5 + 3?", "8"))
+                        .addChallenge(challenges.get(0))
                         .build();
                 } else {
                     room = new UltimateRoomBuilder()
