@@ -26,28 +26,26 @@ public class Room {
     }
 
     public void startChallenge() {
-    for (IChallenge challenge : challenges) {
-        if (challenge instanceof Puzzle) {
-            Puzzle puzzle = (Puzzle) challenge;
-            System.out.println("You encounter a puzzle: " + puzzle.getDescription());
-            Scanner scanner = new Scanner(System.in); 
-            System.out.print("Your answer: ");
-            String userAnswer = scanner.nextLine();
-            if (puzzle.attempt(userAnswer)) {
-                System.out.println("Correct answer!");
-                System.out.println(puzzle.getAnswer());
-                System.out.println(userAnswer);
-            } else {
-                System.out.println("Wrong answer.");
-                System.out.println(puzzle.getAnswer());
-                System.out.println(userAnswer);
+        for (IChallenge challenge : challenges) {
+            if (challenge instanceof Puzzle) {
+                Puzzle puzzle = (Puzzle) challenge;
+                System.out.println("You encounter a puzzle: " + puzzle.getDescription());
+                Scanner scanner = new Scanner(System.in); 
+                System.out.print("Your answer: ");
+                String userAnswer = scanner.nextLine();
+                if (puzzle.attempt(userAnswer)) {
+                    System.out.println("Correct answer!");
+                    challenge.setCompleted();
+                } else {
+                    System.out.println("Wrong answer.");
+                }
             }
         }
     }
-}
-
-
+    
     public ArrayList<IChallenge> getChallenges() {
         return challenges;
     }
 }
+
+
