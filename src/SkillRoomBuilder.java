@@ -5,6 +5,9 @@
 
 import java.util.ArrayList;
 
+import challenges.IChallenge;
+import challenges.Puzzle;
+
 public class SkillRoomBuilder {
 
     private String description;

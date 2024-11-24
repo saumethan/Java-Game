@@ -4,9 +4,15 @@
  */
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
+import challenges.Enemy;
+import challenges.IChallenge;
+import challenges.Puzzle;
+import combat.Weapon;
+import fileHandling.CustomFileReader;
 import ui.GameUI;
 import ui.UIObserver;
+import challenges.*;
 
 public class Game implements UIObserver {
 
@@ -20,6 +26,7 @@ public class Game implements UIObserver {
     private int cols;
     private GameUI gameUI;
     private Boolean gameRunning;
+    private CustomFileReader fileReader;
 
     // Constructor
     public Game() {

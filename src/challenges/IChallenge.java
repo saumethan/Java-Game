@@ -1,3 +1,4 @@
+package challenges;
 /*
  * @author Ethan Saum (2304185) @saumethan272 
  * 19/11/2024

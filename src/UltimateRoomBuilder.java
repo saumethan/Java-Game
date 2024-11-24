@@ -5,6 +5,10 @@
 
 import java.util.ArrayList;
 
+import challenges.Enemy;
+import challenges.IChallenge;
+import challenges.Puzzle;
+
 public class UltimateRoomBuilder {
 
     private String description;

@@ -6,6 +6,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import challenges.Enemy;
+import challenges.IChallenge;
+import challenges.Puzzle;
+
 public class Room {
 
     // Variables

@@ -3,6 +3,9 @@
  * 19/11/2024
  */
 
+import combat.Weapon;
+import health.IHealth;
+
 public class Player implements IHealth {
 
     // Variables

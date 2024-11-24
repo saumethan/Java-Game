@@ -1,3 +1,4 @@
+package health;
 public interface IHealth {
 
     int getHealth();

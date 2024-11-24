@@ -1,7 +1,11 @@
+package challenges;
 /*
  * @author Ethan Saum (2304185) @saumethan272 
  * 19/11/2024
  */
+
+import combat.Weapon;
+import health.IHealth;
 
 public class Enemy implements IChallenge, IHealth {
 

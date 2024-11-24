@@ -4,6 +4,9 @@
  */
 import java.util.ArrayList;
 
+import challenges.Enemy;
+import challenges.IChallenge;
+
 public class PhysicalRoomBuilder {
 
     private String description;
