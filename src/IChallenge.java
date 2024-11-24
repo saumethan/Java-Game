@@ -6,6 +6,7 @@
 public interface IChallenge {
 
     Boolean isCompleted();
+    void setCompleted();
     //void attempt(int amount);
     String getDescription();
 }

@@ -42,4 +42,8 @@ public class Puzzle implements IChallenge {
     public Boolean isCompleted() {
         return isCompleted;
     }
+
+    public void setCompleted() {
+        isCompleted = true;
+    };
 }
