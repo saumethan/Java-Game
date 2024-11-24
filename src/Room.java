@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Room {
 
-     // Variables
+    // Variables
     private String description;
     private ArrayList<IChallenge> challenges;
 
@@ -42,6 +42,7 @@ public class Room {
             }
         }
     }
+<<<<<<< HEAD
     
     public ArrayList<IChallenge> getChallenges() {
         return challenges;
@@ -49,3 +50,10 @@ public class Room {
 }
 
 
+=======
+
+    public ArrayList<IChallenge> getChallenges() {
+        return challenges;
+    }
+}
+>>>>>>> b95598583fda32f0c769c42211750c68dbc86fa8
