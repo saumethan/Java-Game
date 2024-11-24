@@ -125,8 +125,8 @@ public class Game implements UIObserver {
         addCommand("Start challenge", this::startCurrentRoomChallenge);
         addCommand("Move right", player::moveRight);
         addCommand("Move left", player::moveLeft);
-        addCommand("Move up", player::moveForward);
-        addCommand("Move down", player::moveBack);
+        addCommand("Move forward", player::moveForward);
+        addCommand("Move back", player::moveBack);
     }
 
     public void printCurrentRoom() {
