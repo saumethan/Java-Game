@@ -45,6 +45,7 @@ public class Room {
                 } else {
                     System.out.println("Wrong answer. You have lost a life");
                     player.removeLife();
+                    System.out.println("You have " + player.getLives() + " lives left");
                     break;
                 }
             } else if (challenge instanceof Enemy && challenge.isCompleted() != true) {
@@ -63,6 +64,7 @@ public class Room {
                     } else {
                         System.out.println("You have lost a life");
                         player.removeLife();
+                        System.out.println("You have " + player.getLives() + " lives left");
                     }
                 }
             }
