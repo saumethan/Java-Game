@@ -16,6 +16,7 @@ import ui.UIObserver;
 public class Game implements UIObserver {
 
     // Variables 
+    private static Game instance;
     private Player player;
     private Room[][] roomMap; 
     private ArrayList<IChallenge> challenges;
@@ -27,7 +28,7 @@ public class Game implements UIObserver {
     private Boolean gameRunning;
 
     // Constructor
-    public Game() {
+    private Game() {
         player = Player.getInstance();
         player.setWeapon(new Weapon("Knife", 20));
         challenges = CustomFileReader.readChallenges("challenges.txt");
@@ -39,6 +40,13 @@ public class Game implements UIObserver {
         gameUI = new GameUI();
         gameUI.addObserver(this);
         gameRunning = true;
+    }
+
+    public static Game getInstance() {
+        if(instance == null) {
+            instance = new Game();
+        }
+        return instance;
     }
 
     public void startGame() {
