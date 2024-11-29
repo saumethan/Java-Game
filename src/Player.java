@@ -44,6 +44,10 @@ public class Player implements IHealth {
         return currentRoom;
     }
 
+    public int getBonusDamage() {
+        return (int) (Math.random() * 21);
+    }
+
     public Boolean isAlive() {
         return isAlive;
     }
@@ -94,7 +98,7 @@ public class Player implements IHealth {
     }
 
     public int attack() {
-        return weapon.getBaseDamage();
+        return weapon.getBaseDamage() + getBonusDamage();
     }
 
     public void heal(int healAmount) {

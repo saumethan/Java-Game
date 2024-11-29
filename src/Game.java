@@ -29,7 +29,7 @@ public class Game implements UIObserver {
     // Constructor
     public Game() {
         player = Player.getInstance();
-        player.setWeapon(new Weapon("Knife", 45));
+        player.setWeapon(new Weapon("Knife", 20));
         challenges = CustomFileReader.readChallenges("challenges.txt");
         userCommands = new ArrayList<>();
         commands = new ArrayList<>();

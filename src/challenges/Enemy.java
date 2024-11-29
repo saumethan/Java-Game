@@ -34,6 +34,10 @@ public class Enemy implements IChallenge, IHealth {
         return weapon;
     }
 
+    public int getBonusDamage() {
+        return (int) (Math.random() * 21);
+    }
+
     public void attempt(int amount) {
         takeDamage(amount);
     }
@@ -47,7 +51,7 @@ public class Enemy implements IChallenge, IHealth {
     }
 
     public int attack() {
-        return weapon.getBaseDamage();
+        return weapon.getBaseDamage() + getBonusDamage();
     }
 
     public Boolean isCompleted() {
