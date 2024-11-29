@@ -1,0 +1,12 @@
+7 + 3,10
+6 x 3,18
+9 - 4,5
+12 / 2,6
+15 x 10, 150
+5 - 10,-5
+Dragon,Sword,15
+Goblin,Axe,10
+Troll,Bow,5
+Ogre,Knife,10
+Vampire,Dagger,8
+Werewolf,Club,12
