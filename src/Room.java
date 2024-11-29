@@ -47,9 +47,9 @@ public class Room {
             } else if (challenge instanceof Enemy && challenge.isCompleted() != true) {
                 Enemy enemy = (Enemy) challenge;
                 System.out.println("You've encounter an enemy: " + enemy.getDescription());
-                System.out.print("Type fight to start");
+                System.out.print("Type fight to start: ");
                 String action = scanner.nextLine();
-                if (action.trim().toLowerCase().equals("fight: ")) {
+                if (action.trim().toLowerCase().equals("fight")) {
                     while (player.isAlive() && !enemy.isCompleted()) {
                         enemy.takeDamage(player.attack());
                         player.takeDamage(enemy.attack());
