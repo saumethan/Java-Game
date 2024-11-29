@@ -31,7 +31,7 @@ public class Game implements UIObserver {
     public Game() {
         player = Player.getInstance();
         player.setWeapon(new Weapon("Knife", 45));
-        challenges = CustomFileReader.readChallenges("testFile.txt");
+        challenges = CustomFileReader.readChallenges("puzzles.txt");
         userCommands = new ArrayList<>();
         commands = new ArrayList<>();
         rows = 3;
@@ -60,14 +60,20 @@ public class Game implements UIObserver {
                         .addChallenge(new Enemy("Ogre", new Weapon("Sword", 10)))
                         .build();
                 } else if ((row + col) % 3 == 1) {
+                    int randomIndex = (int) (Math.random() * challenges.size());
+                    Puzzle challenge = challenges.get(randomIndex);
+                    challenges.remove(randomIndex);
                     room = new SkillRoomBuilder()
                         .setDescription("A skill challenge room")
-                        .addChallenge(challenges.get(0))
+                        .addChallenge(challenge)
                         .build();
                 } else {
+                    int randomIndex = (int) (Math.random() * challenges.size());
+                    Puzzle challenge = challenges.get(randomIndex);
+                    challenges.remove(randomIndex);
                     room = new UltimateRoomBuilder()
                         .setDescription("An ultimate challenge room")
-                        .addChallenge(new Puzzle("What is 7 * 6?", "42"))
+                        .addChallenge(challenge)
                         .addChallenge(new Enemy("Ogre", new Weapon("Sword", 10)))
                         .build();
                 }
