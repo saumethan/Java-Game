@@ -147,10 +147,52 @@ public class Game implements UIObserver {
 
     private void playerCommands(Player player) {
         addCommand("Start challenge", this::startCurrentRoomChallenge);
-        addCommand("Move right", player::moveRight);
-        addCommand("Move left", player::moveLeft);
-        addCommand("Move forward", player::moveForward);
-        addCommand("Move back", player::moveBack);
+
+        addCommand("Move right", () -> {
+        if (areAllChallengesCompleted()) {
+            player.moveRight();
+        } else {
+            System.out.println("You cannot move until all challenges in this room are completed.");
+        }
+    });
+
+    addCommand("Move left", () -> {
+        if (areAllChallengesCompleted()) {
+            player.moveLeft();
+        } else {
+            System.out.println("You cannot move until all challenges in this room are completed.");
+        }
+    });
+
+    addCommand("Move forward", () -> {
+        if (areAllChallengesCompleted()) {
+            player.moveForward();
+        } else {
+            System.out.println("You cannot move until all challenges in this room are completed.");
+        }
+    });
+
+    addCommand("Move back", () -> {
+        if (areAllChallengesCompleted()) {
+            player.moveBack();
+        } else {
+            System.out.println("You cannot move until all challenges in this room are completed.");
+        }
+    });
+}
+
+    private boolean areAllChallengesCompleted() {
+        int[] currentRoom = player.getCurrentRoom(); 
+        int row = currentRoom[0];
+        int col = currentRoom[1];
+        
+        Room room = roomMap[row][col];
+        for (IChallenge challenge : room.getChallenges()) {
+            if (!challenge.isCompleted()) {
+                return false; 
+            }
+        }
+        return true; 
     }
 
     public void printCurrentRoom() {
