@@ -62,7 +62,7 @@ public class Room {
                     }
                 }
             }
-        } 
+        }
     }
     
     public ArrayList<IChallenge> getChallenges() {

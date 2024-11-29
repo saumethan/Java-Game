@@ -12,7 +12,6 @@ import combat.Weapon;
 import fileHandling.CustomFileReader;
 import ui.GameUI;
 import ui.UIObserver;
-import challenges.*;
 
 public class Game implements UIObserver {
 
