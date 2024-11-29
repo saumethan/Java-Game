@@ -1,6 +1,7 @@
 package fileHandling;
 
 import challenges.*;
+import combat.Weapon;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,9 +10,9 @@ import java.util.Scanner;
 
 public class CustomFileReader {
 
-    public static ArrayList<Puzzle> readChallenges(String filePath) {
+    public static ArrayList<IChallenge> readChallenges(String filePath) {
 
-        ArrayList<Puzzle> challenges = new ArrayList<>();
+        ArrayList<IChallenge> challenges = new ArrayList<>();
 
         try {
             File myFile = new File(filePath);
@@ -20,12 +21,19 @@ public class CustomFileReader {
             while (myFileReader.hasNextLine()) {
                 String data = myFileReader.nextLine().trim();
 
-                String[] challengeItems = data.split(",", 3);
+                String[] challengeItems = data.split(",");
                 
-                String question = challengeItems[0].trim();
-                String answer = challengeItems[1].trim();
-
-                challenges.add(new Puzzle(question, answer));
+                if (challengeItems.length == 2) {
+                    String question = challengeItems[0].trim();
+                    String answer = challengeItems[1].trim();
+                    challenges.add(new Puzzle(question, answer));
+                } else {
+                    String description = challengeItems[0].trim();
+                    String weaponDescription = challengeItems[1].trim();
+                    String weaponBaseDamage = challengeItems[2].trim();
+                    challenges.add(new Enemy(description, new Weapon(weaponDescription, Integer.parseInt(weaponBaseDamage))));
+                }
+                
             }
 
             myFileReader.close();

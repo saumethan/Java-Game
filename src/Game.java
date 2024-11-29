@@ -19,7 +19,7 @@ public class Game implements UIObserver {
     // Variables 
     private Player player;
     private Room[][] roomMap; 
-    private ArrayList<Puzzle> challenges;
+    private ArrayList<IChallenge> challenges;
     private ArrayList<String> userCommands;
     private ArrayList<ICommand> commands;
     private int rows;
@@ -31,7 +31,7 @@ public class Game implements UIObserver {
     public Game() {
         player = Player.getInstance();
         player.setWeapon(new Weapon("Knife", 45));
-        challenges = CustomFileReader.readChallenges("puzzles.txt");
+        challenges = CustomFileReader.readChallenges("challenges.txt");
         userCommands = new ArrayList<>();
         commands = new ArrayList<>();
         rows = 3;
@@ -51,30 +51,48 @@ public class Game implements UIObserver {
     }
 
     public void populateRooms() {
+        ArrayList<Puzzle> puzzles = new ArrayList<>();
+        ArrayList<Enemy> enemies = new ArrayList<>();
+
+
+        for (IChallenge challenge : challenges) {
+            if (challenge instanceof Puzzle) {
+                puzzles.add((Puzzle) challenge);
+            } else {
+                enemies.add((Enemy) challenge);
+            }
+        }
+
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 Room room;
                 if ((row + col) % 3 == 0) {
+                    int randomIndex = (int) (Math.random() * enemies.size());
+                    Enemy challenge = enemies.get(randomIndex);
+                    enemies.remove(randomIndex);
                     room = new PhysicalRoomBuilder()
                         .setDescription("A physical challenge room")
-                        .addChallenge(new Enemy("Ogre", new Weapon("Sword", 10)))
+                        .addChallenge(challenge)
                         .build();
                 } else if ((row + col) % 3 == 1) {
-                    int randomIndex = (int) (Math.random() * challenges.size());
-                    Puzzle challenge = challenges.get(randomIndex);
-                    challenges.remove(randomIndex);
+                    int randomIndex = (int) (Math.random() * puzzles.size());
+                    Puzzle challenge = puzzles.get(randomIndex);
+                    puzzles.remove(randomIndex);
                     room = new SkillRoomBuilder()
                         .setDescription("A skill challenge room")
                         .addChallenge(challenge)
                         .build();
                 } else {
-                    int randomIndex = (int) (Math.random() * challenges.size());
-                    Puzzle challenge = challenges.get(randomIndex);
-                    challenges.remove(randomIndex);
+                    int randomIndexPuzzles = (int) (Math.random() * puzzles.size());
+                    Puzzle puzzleChallenge = puzzles.get(randomIndexPuzzles);
+                    puzzles.remove(randomIndexPuzzles);
+                    int randomIndexEnemies = (int) (Math.random() * enemies.size());
+                    Enemy enemyChallenge = enemies.get(randomIndexEnemies);
+                    enemies.remove(randomIndexEnemies);
                     room = new UltimateRoomBuilder()
                         .setDescription("An ultimate challenge room")
-                        .addChallenge(challenge)
-                        .addChallenge(new Enemy("Ogre", new Weapon("Sword", 10)))
+                        .addChallenge(puzzleChallenge)
+                        .addChallenge(enemyChallenge)
                         .build();
                 }
                 roomMap[row][col] = room;
