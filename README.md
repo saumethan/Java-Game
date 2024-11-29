@@ -2,8 +2,6 @@
 
 # ToDo
 
-- add file reading
-- make all user input use observer
-- stop player from moving room when not all changes are complete
 - sort out formatting of prints
 - comment all code
+- leaderboard with atempts
