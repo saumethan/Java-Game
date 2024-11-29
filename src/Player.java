@@ -14,6 +14,7 @@ public class Player implements IHealth {
     private int health;
     private int level;
     private Boolean isAlive;
+    private int lives;
     private static Player instance;
 
     private Player() {
@@ -23,6 +24,7 @@ public class Player implements IHealth {
         health = 100;
         level = 1;
         isAlive = true;
+        lives = 3;
     }
 
     public static Player getInstance() {
@@ -46,6 +48,17 @@ public class Player implements IHealth {
 
     public int getBonusDamage() {
         return (int) (Math.random() * 21);
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void removeLife() {
+        lives--;
+        if (lives <= 0) {
+            isAlive = false;
+        }
     }
 
     public Boolean isAlive() {

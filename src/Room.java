@@ -42,7 +42,8 @@ public class Room {
                     challenge.setCompleted();
                     break;
                 } else {
-                    System.out.println("Wrong answer.");
+                    System.out.println("Wrong answer. You have lost a life");
+                    player.removeLife();
                     break;
                 }
             } else if (challenge instanceof Enemy && challenge.isCompleted() != true) {
@@ -59,7 +60,8 @@ public class Room {
                         System.out.println("You have killed the " + enemy.getDescription());
                         break;
                     } else {
-                        System.out.println("You have died");
+                        System.out.println("You have lost a life");
+                        player.removeLife();
                     }
                 }
             }
