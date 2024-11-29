@@ -51,6 +51,8 @@ public class Room {
             } else if (challenge instanceof Enemy && challenge.isCompleted() != true) {
                 Enemy enemy = (Enemy) challenge;
                 System.out.println("You've encounter an enemy: " + enemy.getDescription());
+                System.out.println("Your damage: " + player.attack());
+                System.out.println("Enemy's damage: " + enemy.attack());
                 System.out.print("Type fight to start: ");
                 String action = scanner.nextLine();
                 if (action.trim().toLowerCase().equals("fight")) {
@@ -62,9 +64,11 @@ public class Room {
                         System.out.println("You have killed the " + enemy.getDescription());
                         break;
                     } else {
-                        System.out.println("You have lost a life");
+                        player.setAlive();
+                        System.out.println("You have lost the fight and a life");
                         player.removeLife();
                         System.out.println("You have " + player.getLives() + " lives left");
+                        break;
                     }
                 }
             }

@@ -132,11 +132,6 @@ public class Game implements UIObserver {
 
 
     public void executeCommands(String commandInput) {
-        if (!player.isAlive()) {
-            System.out.println("Game Over! You are dead.");
-            stopGame();
-            return;
-        }
 
         int index = -1;
         String normalizedInput = commandInput.toLowerCase();
@@ -173,10 +168,11 @@ public class Game implements UIObserver {
     }
 
     private void playerCommands(Player player) {
-        addCommand("Start challenge", this::startCurrentRoomChallenge);
+        addCommand("S", this::startCurrentRoomChallenge);
 
         addCommand("Move right", () -> {
             if (areAllChallengesCompleted()) {
+                player.resetHealth();
                 player.moveRight();
             } else {
                 System.out.println("You cannot move until all challenges in this room are completed.");
@@ -185,6 +181,7 @@ public class Game implements UIObserver {
 
         addCommand("Move left", () -> {
             if (areAllChallengesCompleted()) {
+                player.resetHealth();
                 player.moveLeft();
             } else {
                 System.out.println("You cannot move until all challenges in this room are completed.");
@@ -193,6 +190,7 @@ public class Game implements UIObserver {
     
         addCommand("Move forward", () -> {
             if (areAllChallengesCompleted()) {
+                player.resetHealth();
                 player.moveForward();
             } else {
                 System.out.println("You cannot move until all challenges in this room are completed.");
@@ -201,6 +199,7 @@ public class Game implements UIObserver {
     
         addCommand("Move back", () -> {
             if (areAllChallengesCompleted()) {
+                player.resetHealth();
                 player.moveBack();
             } else {
                 System.out.println("You cannot move until all challenges in this room are completed.");
@@ -223,10 +222,29 @@ public class Game implements UIObserver {
         return true; 
     }
 
+    private boolean areAllChallengesCompletedInAllRooms() {
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                Room room = roomMap[row][col];
+                for (IChallenge challenge : room.getChallenges()) {
+                    if (!challenge.isCompleted()) {
+                        return false;  
+                    }
+                }
+            }
+        }
+        return true;  
+    }
+    
+
     public void printCurrentRoom() {
 
         if (!player.isAlive()) {
             System.out.println("Game Over! You are dead.");
+            stopGame();
+            return;
+        } else if (areAllChallengesCompletedInAllRooms()) {
+            System.out.println("You have completed the game!");
             stopGame();
             return;
         }

@@ -66,8 +66,16 @@ public class Player implements IHealth {
         return isAlive;
     }
 
+    public void setAlive() {
+        isAlive = true;
+    }
+
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
+    }
+
+    public void resetHealth() {
+        health = 100;
     }
 
     public void takeDamage(int amount) {
