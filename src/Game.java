@@ -42,6 +42,17 @@ public class Game implements UIObserver {
         gameRunning = true;
     }
 
+    public void startGame() {
+        // Populate the room map
+        populateRooms();
+        // Add the players commands to move
+        playerCommands((Player) player);
+
+        printCurrentRoom();
+
+        gameUI.getInput();
+    }
+
     public void stopGame() {
         gameRunning = false;
     }
@@ -100,17 +111,6 @@ public class Game implements UIObserver {
         }
     }
 
-    public void startGame() {
-        // Populate the room map
-        populateRooms();
-        // Add the players commands to move
-        playerCommands((Player) player);
-
-        printCurrentRoom();
-
-        gameUI.getInput();
-    }
-
     public void addCommand(String name, ICommand command) {
         userCommands.add(name.toLowerCase());
         commands.add(command);
@@ -149,37 +149,38 @@ public class Game implements UIObserver {
         addCommand("Start challenge", this::startCurrentRoomChallenge);
 
         addCommand("Move right", () -> {
-        if (areAllChallengesCompleted()) {
-            player.moveRight();
-        } else {
-            System.out.println("You cannot move until all challenges in this room are completed.");
-        }
-    });
+            if (areAllChallengesCompleted()) {
+                player.moveRight();
+            } else {
+                System.out.println("You cannot move until all challenges in this room are completed.");
+            }
+        });
 
-    addCommand("Move left", () -> {
-        if (areAllChallengesCompleted()) {
-            player.moveLeft();
-        } else {
-            System.out.println("You cannot move until all challenges in this room are completed.");
-        }
-    });
+        addCommand("Move left", () -> {
+            if (areAllChallengesCompleted()) {
+                player.moveLeft();
+            } else {
+                System.out.println("You cannot move until all challenges in this room are completed.");
+            }
+        });
+    
+        addCommand("Move forward", () -> {
+            if (areAllChallengesCompleted()) {
+                player.moveForward();
+            } else {
+                System.out.println("You cannot move until all challenges in this room are completed.");
+            }
+        });
+    
+        addCommand("Move back", () -> {
+            if (areAllChallengesCompleted()) {
+                player.moveBack();
+            } else {
+                System.out.println("You cannot move until all challenges in this room are completed.");
+            }
+        });
+    }
 
-    addCommand("Move forward", () -> {
-        if (areAllChallengesCompleted()) {
-            player.moveForward();
-        } else {
-            System.out.println("You cannot move until all challenges in this room are completed.");
-        }
-    });
-
-    addCommand("Move back", () -> {
-        if (areAllChallengesCompleted()) {
-            player.moveBack();
-        } else {
-            System.out.println("You cannot move until all challenges in this room are completed.");
-        }
-    });
-}
 
     private boolean areAllChallengesCompleted() {
         int[] currentRoom = player.getCurrentRoom(); 
