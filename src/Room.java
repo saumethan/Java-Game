@@ -43,6 +43,7 @@ public class Room {
                     break;
                 } else {
                     System.out.println("Wrong answer.");
+                    break;
                 }
             } else if (challenge instanceof Enemy && challenge.isCompleted() != true) {
                 Enemy enemy = (Enemy) challenge;
