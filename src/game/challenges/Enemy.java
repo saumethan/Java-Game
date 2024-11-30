@@ -9,12 +9,13 @@ import game.health.IHealth;
 
 public class Enemy implements IChallenge, IHealth {
 
-    // Variables
+    //------------ Variables -----------------
     private String description;
     private Weapon weapon;
     private int health;
     private Boolean isCompleted;
 
+    //------------ Constructor Method -----------------
     public Enemy(String description, Weapon weapon) {
         this.description = description;
         this.weapon = weapon;
@@ -22,6 +23,7 @@ public class Enemy implements IChallenge, IHealth {
         isCompleted = false;
     }
 
+    //------------ Getter Methods -----------------
     public String getDescription() {
         return description;
     }
@@ -38,10 +40,17 @@ public class Enemy implements IChallenge, IHealth {
         return (int) (Math.random() * 21);
     }
 
+    //------------ Setter Methods -----------------
+    public void setCompleted() {
+        isCompleted = true;
+    };
+    
+    //------------ Attempt Method -----------------
     public void attempt(int amount) {
         takeDamage(amount);
     }
 
+    //------------ Take Damage Method -----------------
     public void takeDamage(int amount) {
         if (health - amount > 0) {
             health-=amount;
@@ -50,18 +59,17 @@ public class Enemy implements IChallenge, IHealth {
         }
     }
 
+    //------------ Attack Method -----------------
     public int attack() {
         return weapon.getBaseDamage() + getBonusDamage();
     }
 
+    //------------ Is Challenge Complete Check Method -----------------
     public Boolean isCompleted() {
         return isCompleted;
     }
 
-    public void setCompleted() {
-        isCompleted = true;
-    };
-
+    //------------ Heal Method -----------------
     public void heal(int healAmount) {
         if (health + healAmount < 100) {
             health += healAmount;

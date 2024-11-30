@@ -6,12 +6,13 @@ package game.challenges;
  */
 public class Puzzle implements IChallenge {
 
-    // Variables 
+    //------------ Variables ----------------- 
     private String question;
     private String answer;
     private int attemps;
     private boolean isCompleted;
 
+    //------------ Constructor Method -----------------
     public Puzzle(String question, String answer) {
         this.question = question;
         this.answer = answer;
@@ -19,6 +20,7 @@ public class Puzzle implements IChallenge {
         isCompleted = false;
     }
 
+    //------------ Getter Methods -----------------
     public String getDescription() {
         return question;
     }
@@ -31,6 +33,7 @@ public class Puzzle implements IChallenge {
         return attemps;
     }
 
+    //------------ Attempt Method -----------------
     public Boolean attempt(String amount) {
         attemps++;
         if (amount.equals(answer)) {
@@ -40,10 +43,12 @@ public class Puzzle implements IChallenge {
         }
     }
 
+    //------------ Is Challenge Complete Check Method -----------------
     public Boolean isCompleted() {
         return isCompleted;
     }
 
+    //------------ Set Completed Method -----------------
     public void setCompleted() {
         isCompleted = true;
     };
