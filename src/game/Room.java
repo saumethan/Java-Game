@@ -1,15 +1,14 @@
 package game;
-/*
- * @author Ethan Saum (2304185) @saumethan272 
- * 19/11/2024
- */
-
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import game.challenges.Enemy;
 import game.challenges.IChallenge;
 import game.challenges.Puzzle;
+
+/*
+ * @author Ethan Saum (2304185) @saumethan272 
+ * 30/11/2024
+ */
 
 public class Room {
 

@@ -1,12 +1,15 @@
 package game.fileHandling;
-
 import game.challenges.*;
 import game.combat.Weapon;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+/*
+ * @author Ethan Saum (2304185) @saumethan272 
+ * 30/11/2024
+ */
 
 public class CustomFileReader {
 

@@ -1,6 +1,10 @@
 package game.logging;
-
 import game.ui.UIObserver;
+
+/*
+ * @author Ethan Saum (2304185) @saumethan272 
+ * 30/11/2024
+ */
 
 public class GameLogger implements UIObserver {
 

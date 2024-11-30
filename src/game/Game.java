@@ -1,11 +1,6 @@
 package game;
-/*
- * @author Ethan Saum (2304185) @saumethan272 
- * 19/11/2024
- */
 
 import java.util.ArrayList;
-
 import game.challenges.Enemy;
 import game.challenges.IChallenge;
 import game.challenges.Puzzle;
@@ -13,6 +8,11 @@ import game.combat.Weapon;
 import game.fileHandling.CustomFileReader;
 import game.ui.GameUI;
 import game.ui.UIObserver;
+
+/*
+ * @author Ethan Saum (2304185) @saumethan272 
+ * 30/11/2024
+ */
 
 public class Game implements UIObserver {
 

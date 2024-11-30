@@ -1,11 +1,11 @@
 package game;
-/*
- * @author Ethan Saum (2304185) @saumethan272 
- * 19/11/2024
- */
-
 import game.combat.Weapon;
 import game.health.IHealth;
+
+/*
+ * @author Ethan Saum (2304185) @saumethan272 
+ * 30/11/2024
+ */
 
 public class Player implements IHealth {
 
