@@ -27,15 +27,17 @@ public class CustomFileReader {
 
                 String[] challengeItems = data.split(",");
                 
-                if (challengeItems.length == 2) {
-                    String question = challengeItems[0].trim();
-                    String answer = challengeItems[1].trim();
-                    challenges.add(new Puzzle(question, answer));
-                } else {
+                if (challengeItems.length == 3) {
                     String description = challengeItems[0].trim();
-                    String weaponDescription = challengeItems[1].trim();
-                    String weaponBaseDamage = challengeItems[2].trim();
-                    challenges.add(new Enemy(description, new Weapon(weaponDescription, Integer.parseInt(weaponBaseDamage))));
+                    String question = challengeItems[1].trim();
+                    String answer = challengeItems[2].trim();
+                    challenges.add(new Puzzle(description, question, answer));
+                } else {
+                    String name = challengeItems[0].trim();
+                    String description = challengeItems[1].trim();
+                    String weaponDescription = challengeItems[2].trim();
+                    String weaponBaseDamage = challengeItems[3].trim();
+                    challenges.add(new Enemy(name, description, new Weapon(weaponDescription, Integer.parseInt(weaponBaseDamage))));
                 }
                 
             }

@@ -7,13 +7,15 @@ package game.challenges;
 public class Puzzle implements IChallenge {
 
     //------------ Variables ----------------- 
+    private String description;
     private String question;
     private String answer;
     private int attemps;
     private boolean isCompleted;
 
     //------------ Constructor Method -----------------
-    public Puzzle(String question, String answer) {
+    public Puzzle(String description, String question, String answer) {
+        this.description = description;
         this.question = question;
         this.answer = answer;
         attemps = 0;

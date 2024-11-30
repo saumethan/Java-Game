@@ -1,4 +1,5 @@
 package game.challenges;
+
 import game.combat.Weapon;
 import game.health.IHealth;
 
@@ -10,13 +11,15 @@ import game.health.IHealth;
 public class Enemy implements IChallenge, IHealth {
 
     //------------ Variables -----------------
+    private String name;
     private String description;
     private Weapon weapon;
     private int health;
     private Boolean isCompleted;
 
     //------------ Constructor Method -----------------
-    public Enemy(String description, Weapon weapon) {
+    public Enemy(String name, String description, Weapon weapon) {
+        this.name = name;
         this.description = description;
         this.weapon = weapon;
         health = 100;
