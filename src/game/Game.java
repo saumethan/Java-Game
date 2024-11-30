@@ -43,7 +43,7 @@ public class Game implements UIObserver {
         gameRunning = true;
     }
 
-    //------------ Singleton Method -----------------
+    //------------ Singleton Get Instance Method -----------------
     public static Game getInstance() {
         if(instance == null) {
             instance = new Game();
