@@ -12,23 +12,31 @@ import game.challenges.Puzzle;
 
 public class Room {
 
-    // Variables
+    //------------ Variables -----------------
     private String description;
     private ArrayList<IChallenge> challenges;
 
-    public void addChallenge(IChallenge challenge) {
-        challenges.add(challenge);
-    }
-    
+    //------------ Constructor Method -----------------
     public Room(String description) {
         this.description = description;
         challenges = new ArrayList<>();
     }
 
+    //------------ Getter Methods -----------------
     public String getDescription() {
         return description;
     }
 
+    public ArrayList<IChallenge> getChallenges() {
+        return challenges;
+    }
+
+    //------------ Add Challenge Method -----------------
+    public void addChallenge(IChallenge challenge) {
+        challenges.add(challenge);
+    }
+    
+    //------------ Start Challenge Method -----------------
     public void startChallenge(Player player) {
         Scanner scanner = new Scanner(System.in);
         for (IChallenge challenge : challenges) {
@@ -72,10 +80,6 @@ public class Room {
                 }
             }
         }
-    }
-    
-    public ArrayList<IChallenge> getChallenges() {
-        return challenges;
     }
 }
 
