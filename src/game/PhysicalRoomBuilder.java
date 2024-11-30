@@ -10,6 +10,7 @@ import game.challenges.IChallenge;
 
 public class PhysicalRoomBuilder {
 
+    // Variables
     private String description;
     private ArrayList<IChallenge> challenges;
 

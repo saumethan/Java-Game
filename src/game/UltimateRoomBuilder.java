@@ -11,6 +11,7 @@ import game.challenges.Puzzle;
 
 public class UltimateRoomBuilder {
 
+    // Variables
     private String description;
     private ArrayList<IChallenge> challenges;
 
