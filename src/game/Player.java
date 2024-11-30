@@ -9,7 +9,7 @@ import game.health.IHealth;
 
 public class Player implements IHealth {
 
-    // Variables
+    //------------ Variables -----------------
     private int[] currentRoom;
     private Weapon weapon;
     private int health;
@@ -18,6 +18,7 @@ public class Player implements IHealth {
     private int lives;
     private static Player instance;
 
+    //------------ Constructor Method -----------------
     private Player() {
         currentRoom = new int[2];
         currentRoom[0] = 1;
@@ -28,6 +29,7 @@ public class Player implements IHealth {
         lives = 3;
     }
 
+    //------------ Singleton Get Instance Method -----------------
     public static Player getInstance() {
         if(instance == null) {
             instance = new Player();
@@ -35,6 +37,7 @@ public class Player implements IHealth {
         return instance;
     }
 
+    //------------ Getter Methods -----------------
     public int getHealth() {
         return health;
     }
@@ -55,17 +58,7 @@ public class Player implements IHealth {
         return lives;
     }
 
-    public void removeLife() {
-        lives--;
-        if (lives <= 0) {
-            isAlive = false;
-        }
-    }
-
-    public Boolean isAlive() {
-        return isAlive;
-    }
-
+    //------------ Setter Methods -----------------
     public void setAlive() {
         isAlive = true;
     }
@@ -74,10 +67,25 @@ public class Player implements IHealth {
         this.weapon = weapon;
     }
 
+    //------------ Remove Life Method -----------------
+    public void removeLife() {
+        lives--;
+        if (lives <= 0) {
+            isAlive = false;
+        }
+    }
+
+    //------------ Is Alive Check Method -----------------
+    public Boolean isAlive() {
+        return isAlive;
+    }
+
+    //------------ Reset Health Method -----------------
     public void resetHealth() {
         health = 100;
     }
 
+    //------------ Take Damage Method -----------------
     public void takeDamage(int amount) {
         if (health - amount > 0) {
             health-=amount;
@@ -86,6 +94,7 @@ public class Player implements IHealth {
         }
     }
 
+    //------------ Movement Methods -----------------
     public void moveRight() {
         if (currentRoom[0] < 3) {
             currentRoom[0] += 1;
@@ -119,10 +128,12 @@ public class Player implements IHealth {
         }
     }
 
+    //------------ Attack Method -----------------
     public int attack() {
         return weapon.getBaseDamage() + getBonusDamage();
     }
 
+    //------------ Heal Method -----------------
     public void heal(int healAmount) {
         if (health + healAmount < 100) {
             health += healAmount;
