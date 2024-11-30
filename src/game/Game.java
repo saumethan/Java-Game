@@ -6,6 +6,10 @@ import game.challenges.IChallenge;
 import game.challenges.Puzzle;
 import game.combat.Weapon;
 import game.fileHandling.CustomFileReader;
+import game.room.PhysicalRoomBuilder;
+import game.room.Room;
+import game.room.SkillRoomBuilder;
+import game.room.UltimateRoomBuilder;
 import game.ui.GameUI;
 import game.ui.UIObserver;
 

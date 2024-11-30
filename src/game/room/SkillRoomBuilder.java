@@ -1,6 +1,6 @@
-package game;
+package game.room;
 import java.util.ArrayList;
-import game.challenges.Enemy;
+
 import game.challenges.IChallenge;
 import game.challenges.Puzzle;
 
@@ -9,27 +9,23 @@ import game.challenges.Puzzle;
  * 30/11/2024
  */
 
-public class UltimateRoomBuilder {
+public class SkillRoomBuilder {
 
     // Variables
     private String description;
     private ArrayList<IChallenge> challenges;
 
-    public UltimateRoomBuilder() {
+    public SkillRoomBuilder() {
         challenges = new ArrayList<>();
     }
-    public UltimateRoomBuilder setDescription(String description) {
+
+    public SkillRoomBuilder setDescription(String description) {
         this.description = description;
         return this;
     }
 
-    public UltimateRoomBuilder addChallenge(Puzzle puzzle) {
+    public SkillRoomBuilder addChallenge(Puzzle puzzle) {
         challenges.add(puzzle);
-        return this;
-    }
-
-    public UltimateRoomBuilder addChallenge(Enemy enemy) {
-        challenges.add(enemy);
         return this;
     }
 
@@ -40,4 +36,5 @@ public class UltimateRoomBuilder {
         }
         return room;
     }
-} 
+}
+

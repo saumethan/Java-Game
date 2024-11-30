@@ -1,5 +1,6 @@
-package game;
+package game.room;
 import java.util.ArrayList;
+
 import game.challenges.Enemy;
 import game.challenges.IChallenge;
 

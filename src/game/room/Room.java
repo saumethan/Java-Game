@@ -1,6 +1,8 @@
-package game;
+package game.room;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import game.Player;
 import game.challenges.Enemy;
 import game.challenges.IChallenge;
 import game.challenges.Puzzle;
