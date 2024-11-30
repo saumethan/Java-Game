@@ -10,24 +10,27 @@ import game.Game;
 
 public class GameUI {
 
-    //Variables 
+    //------------ Variables -----------------
     private ArrayList<UIObserver> observers;
 
+    //------------ Constructor Method -----------------
     public GameUI() {
-
         observers = new ArrayList<>();
     }
 
+    //------------ Add Observer Method -----------------
     public void addObserver(UIObserver observer) {
         observers.add(observer);
     }
 
+    //------------ Notify Observers Method -----------------
     private void notifyObservers(String input) {
         for (UIObserver observer : observers) {
             observer.update(input);  
         }
     }
 
+    //------------ Get Input Method -----------------
     public void getInput() {
         if (!Game.getInstance().isGameRunning() || !Game.getInstance().getPlayer().isAlive()) {
             return; 
@@ -52,6 +55,4 @@ public class GameUI {
         }
         scanner.close();  
     }
-    
-    
 }
