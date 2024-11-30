@@ -16,7 +16,7 @@ import game.ui.UIObserver;
 
 public class Game implements UIObserver {
 
-    // Variables 
+    //------------ Variables ----------------- 
     private static Game instance;
     private Player player;
     private Room[][] roomMap; 
@@ -28,7 +28,7 @@ public class Game implements UIObserver {
     private GameUI gameUI;
     private Boolean gameRunning;
 
-    // Constructor
+    //------------ Constructor Method -----------------
     private Game() {
         player = Player.getInstance();
         player.setWeapon(new Weapon("Knife", 20));
@@ -43,6 +43,7 @@ public class Game implements UIObserver {
         gameRunning = true;
     }
 
+    //------------ Singleton Method -----------------
     public static Game getInstance() {
         if(instance == null) {
             instance = new Game();
@@ -50,10 +51,12 @@ public class Game implements UIObserver {
         return instance;
     }
 
+    //------------ Getter Methods -----------------
     public Player getPlayer() {
         return player;
     }
 
+    //------------ Start Game Method -----------------
     public void startGame() {
         // Populate the room map
         populateRooms();
@@ -65,16 +68,18 @@ public class Game implements UIObserver {
         gameUI.getInput();
     }
     
-
+    //------------ Stop Game Method -----------------
     public void stopGame() {
         gameRunning = false;
         System.out.println("The game has ended.");
     }
 
+    //------------ Game Running Check Method -----------------
     public boolean isGameRunning() {
         return gameRunning;
     }
 
+    //------------ Populate Rooms Method -----------------
     public void populateRooms() {
         ArrayList<Puzzle> puzzles = new ArrayList<>();
         ArrayList<Enemy> enemies = new ArrayList<>();
@@ -125,12 +130,13 @@ public class Game implements UIObserver {
         }
     }
 
+    //------------ Add Comands Method -----------------
     public void addCommand(String name, ICommand command) {
         userCommands.add(name.toLowerCase());
         commands.add(command);
     }
 
-
+    //------------ Execute Commands Method -----------------
     public void executeCommands(String commandInput) {
 
         int index = -1;
@@ -150,23 +156,7 @@ public class Game implements UIObserver {
         }
     }
 
-    private void startCurrentRoomChallenge() {
-
-        if (!player.isAlive()) {
-            System.out.println("Game Over! You are dead.");
-            stopGame();
-            return;
-        }
-
-        int[] currentRoom = player.getCurrentRoom(); 
-        int row = currentRoom[0];
-        int col = currentRoom[1];
-    
-        Room room = roomMap[row][col];
-    
-        room.startChallenge(player);
-    }
-
+    //------------ Players Commands Method -----------------
     private void playerCommands(Player player) {
         addCommand("S", this::startCurrentRoomChallenge);
 
@@ -207,7 +197,25 @@ public class Game implements UIObserver {
         });
     }
 
+    //------------ Start Current Rooms Challenges Method -----------------
+    private void startCurrentRoomChallenge() {
 
+        if (!player.isAlive()) {
+            System.out.println("Game Over! You are dead.");
+            stopGame();
+            return;
+        }
+
+        int[] currentRoom = player.getCurrentRoom(); 
+        int row = currentRoom[0];
+        int col = currentRoom[1];
+    
+        Room room = roomMap[row][col];
+    
+        room.startChallenge(player);
+    }
+
+    //------------ Are All Challenges In Current Room Complete Check Method -----------------
     private boolean areAllChallengesCompleted() {
         int[] currentRoom = player.getCurrentRoom(); 
         int row = currentRoom[0];
@@ -222,6 +230,7 @@ public class Game implements UIObserver {
         return true; 
     }
 
+    //------------ Are All Challenges In All Rooms Complete Check Method -----------------
     private boolean areAllChallengesCompletedInAllRooms() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -236,9 +245,8 @@ public class Game implements UIObserver {
         return true;  
     }
     
-
+    //------------ Print Current Room Method -----------------
     public void printCurrentRoom() {
-
         if (!player.isAlive()) {
             System.out.println("Game Over! You are dead.");
             stopGame();
@@ -275,37 +283,40 @@ public class Game implements UIObserver {
         }
     }
 
+    //------------ Update Method -----------------
     @Override
     public void update(String commands) {
         executeCommands(commands);
         printCurrentRoom();
     }
 
-    // public void printRooms() {
-    //     for (int row = 0; row < rows; row++) {
-    //         for (int col = 0; col < cols; col++) {
-    //             Room room = roomMap[row][col];
-    //             System.out.println("Room at (" + row + ", " + col + "): " + room.getDescription());
+    //------------ Print Rooms Method -----------------
+    public void printRooms() {
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                Room room = roomMap[row][col];
+                System.out.println("Room at (" + row + ", " + col + "): " + room.getDescription());
                 
-    //             // Print challenges in rooms
-    //             System.out.println("Challenges in this room:");
-    //             for (IChallenge challenge : room.getChallenges()) {
-    //                 if (challenge.isCompleted() != true) {
-    //                     System.out.println(" - " + challenge.getDescription());
-    //                     if (challenge instanceof Puzzle) {
-    //                         Puzzle puzzle = (Puzzle) challenge;
-    //                         System.out.println("   Puzzle answer: " + puzzle.getAnswer());
-    //                     } else if (challenge instanceof Enemy) {
-    //                         Enemy enemy = (Enemy) challenge;
-    //                         System.out.println("   Enemy: " + enemy.getDescription() + ", Weapon: " + enemy.getWeapon().getDescription());
-    //                     }
-    //                 }
-    //             }
-    //             System.out.println();
-    //         }
-    //     }
-    // }
+                // Print challenges in rooms
+                System.out.println("Challenges in this room:");
+                for (IChallenge challenge : room.getChallenges()) {
+                    if (challenge.isCompleted() != true) {
+                        System.out.println(" - " + challenge.getDescription());
+                        if (challenge instanceof Puzzle) {
+                            Puzzle puzzle = (Puzzle) challenge;
+                            System.out.println("   Puzzle answer: " + puzzle.getAnswer());
+                        } else if (challenge instanceof Enemy) {
+                            Enemy enemy = (Enemy) challenge;
+                            System.out.println("   Enemy: " + enemy.getDescription() + ", Weapon: " + enemy.getWeapon().getDescription());
+                        }
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
 
+    //------------ Summary Method -----------------
     public void summary() {
 
     }
