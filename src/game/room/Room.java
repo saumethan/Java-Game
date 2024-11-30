@@ -26,7 +26,17 @@ public class Room {
 
     //------------ Getter Methods -----------------
     public String getDescription() {
-        return description;
+        String output = description;
+    for (int i = 0; i < challenges.size(); i++) {
+        if (!challenges.get(i).isCompleted()) {
+            output += "with a ";
+            output += challenges.get(i).getDescription();
+            if (i < challenges.size() - 1) { 
+                output += " and ";
+            }
+        }
+    }
+    return output;
     }
 
     public ArrayList<IChallenge> getChallenges() {
@@ -44,7 +54,8 @@ public class Room {
         for (IChallenge challenge : challenges) {
             if (challenge instanceof Puzzle && challenge.isCompleted() != true) {
                 Puzzle puzzle = (Puzzle) challenge;
-                System.out.println("You've encounter a puzzle: " + puzzle.getDescription());
+                System.out.println("You've encounter a " + puzzle.getDescription());
+                System.out.println("Question: " + puzzle.getChallengeDescription());
                 System.out.print("Your answer: ");
                 String userAnswer = scanner.nextLine();
                 if (puzzle.attempt(userAnswer)) {
@@ -59,7 +70,8 @@ public class Room {
                 }
             } else if (challenge instanceof Enemy && challenge.isCompleted() != true) {
                 Enemy enemy = (Enemy) challenge;
-                System.out.println("You've encounter an enemy: " + enemy.getDescription());
+                System.out.println("You've encounter a " + enemy.getDescription());
+                System.out.println("Name: " + enemy.getChallengeDescription());
                 System.out.println("Your damage: " + player.attack());
                 System.out.println("Enemy's damage: " + enemy.attack());
                 System.out.print("Type fight to start: ");

@@ -31,6 +31,10 @@ public class Enemy implements IChallenge, IHealth {
         return description;
     }
 
+    public String getChallengeDescription() {
+        return name;
+    }
+
     public int getHealth() {
         return health;
     }

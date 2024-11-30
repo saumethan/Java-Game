@@ -1,12 +1,12 @@
-7 + 3,10
-6 x 3,18
-9 - 4,5
-12 / 2,6
-15 x 10, 150
-5 - 10,-5
-Dragon,Sword,15
-Goblin,Axe,10
-Troll,Bow,5
-Ogre,Knife,10
-Vampire,Dagger,8
-Werewolf,Club,12
+Tricky Question, 7 + 3, 10
+Mind-bending Puzzle, 6 x 3, 18
+Deceptive Riddle, 9 - 4, 5
+Challenging Math Trap, 12 / 2, 6
+Cunning Calculation, 15 x 10, 150
+Dangerous Negative Twist, 5 - 10, -5
+Dragon, Fierce and Fiery Guardian, Sword, 15
+Goblin, Sneaky and Mischievous Raider, Axe, 10
+Troll, Hulking and Gruff Protector, Bow, 5
+Ogre, Brutish and Dim-witted Lurker, Knife, 10
+Vampire, Elegant and Bloodthirsty Predator, Dagger, 8
+Werewolf, Savage and Relentless Hunter, Club, 12

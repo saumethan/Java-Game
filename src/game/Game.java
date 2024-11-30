@@ -105,7 +105,7 @@ public class Game implements UIObserver {
                     Enemy challenge = enemies.get(randomIndex);
                     enemies.remove(randomIndex);
                     room = new PhysicalRoomBuilder()
-                        .setDescription("A physical challenge room")
+                        .setDescription("   You are in a dark dungeon ")
                         .addChallenge(challenge)
                         .build();
                 } else if ((row + col) % 3 == 1) {
@@ -113,7 +113,7 @@ public class Game implements UIObserver {
                     Puzzle challenge = puzzles.get(randomIndex);
                     puzzles.remove(randomIndex);
                     room = new SkillRoomBuilder()
-                        .setDescription("A skill challenge room")
+                    .setDescription("   You are in a dark dungeon ")
                         .addChallenge(challenge)
                         .build();
                 } else {
@@ -124,7 +124,7 @@ public class Game implements UIObserver {
                     Enemy enemyChallenge = enemies.get(randomIndexEnemies);
                     enemies.remove(randomIndexEnemies);
                     room = new UltimateRoomBuilder()
-                        .setDescription("An ultimate challenge room")
+                    .setDescription("   You are in a dark dungeon ")
                         .addChallenge(puzzleChallenge)
                         .addChallenge(enemyChallenge)
                         .build();
@@ -162,7 +162,7 @@ public class Game implements UIObserver {
 
     //------------ Players Commands Method -----------------
     private void playerCommands(Player player) {
-        addCommand("S", this::startCurrentRoomChallenge);
+        addCommand("Start challenge", this::startCurrentRoomChallenge);
 
         addCommand("Move right", () -> {
             if (areAllChallengesCompleted()) {
@@ -275,13 +275,8 @@ public class Game implements UIObserver {
             }
         }
 
-        System.out.println("You are in a room at (" + row + ", " + col + "): " + room.getDescription());
-        System.out.println("    Challenges in this room:");
-        for (IChallenge challenge : room.getChallenges()) {
-            if (challenge.isCompleted() != true) {
-                System.out.println("    - " + challenge.getDescription());
-            }
-        }
+        System.out.println("You are in a room at (" + row + ", " + col + "): \n" + room.getDescription());
+        
         if (!allChallengesCompleted) {
             System.out.println("    There are no more challenges in this room. Move to another room");
         }

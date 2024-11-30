@@ -9,5 +9,6 @@ public interface IChallenge {
 
     Boolean isCompleted();
     void setCompleted();
+    String getChallengeDescription();
     String getDescription();
 }

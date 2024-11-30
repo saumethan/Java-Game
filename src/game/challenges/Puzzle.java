@@ -24,6 +24,10 @@ public class Puzzle implements IChallenge {
 
     //------------ Getter Methods -----------------
     public String getDescription() {
+        return description;
+    }
+
+    public String getChallengeDescription() {
         return question;
     }
 
