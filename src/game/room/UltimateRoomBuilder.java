@@ -12,28 +12,34 @@ import game.challenges.Puzzle;
 
 public class UltimateRoomBuilder {
 
-    // Variables
+    //------------ Variables -----------------
     private String description;
     private ArrayList<IChallenge> challenges;
 
+    //------------ Constructor Method -----------------
     public UltimateRoomBuilder() {
         challenges = new ArrayList<>();
     }
+
+    //------------ Set Description Method -----------------
     public UltimateRoomBuilder setDescription(String description) {
         this.description = description;
         return this;
     }
 
+    //------------ Add Puzzle Challenge Method -----------------
     public UltimateRoomBuilder addChallenge(Puzzle puzzle) {
         challenges.add(puzzle);
         return this;
     }
 
+    //------------ Add Enemy Challenge Method -----------------
     public UltimateRoomBuilder addChallenge(Enemy enemy) {
         challenges.add(enemy);
         return this;
     }
 
+    //------------ Build Room Method -----------------
     public Room build() {
         Room room = new Room(description);
         for (IChallenge challenge : challenges) {

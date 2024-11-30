@@ -11,24 +11,28 @@ import game.challenges.Puzzle;
 
 public class SkillRoomBuilder {
 
-    // Variables
+    //------------ Variables -----------------
     private String description;
     private ArrayList<IChallenge> challenges;
 
+    //------------ Constructor Method -----------------
     public SkillRoomBuilder() {
         challenges = new ArrayList<>();
     }
 
+    //------------ Set Description Method -----------------
     public SkillRoomBuilder setDescription(String description) {
         this.description = description;
         return this;
     }
 
+    //------------ Add Puzzle Challenge Method -----------------
     public SkillRoomBuilder addChallenge(Puzzle puzzle) {
         challenges.add(puzzle);
         return this;
     }
 
+    //------------ Build Room Method -----------------
     public Room build() {
         Room room = new Room(description);
         for (IChallenge challenge : challenges) {

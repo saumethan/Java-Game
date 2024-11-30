@@ -11,24 +11,28 @@ import game.challenges.IChallenge;
 
 public class PhysicalRoomBuilder {
 
-    // Variables
+    //------------ Variables -----------------
     private String description;
     private ArrayList<IChallenge> challenges;
 
+    //------------ Constructor Method -----------------
     public PhysicalRoomBuilder() {
         challenges = new ArrayList<>();
     }
 
+    //------------ Set Description Method -----------------
     public PhysicalRoomBuilder setDescription(String description) {
         this.description = description;
         return this;
     }
 
+    //------------ Add Enemy Challenge Method -----------------
     public PhysicalRoomBuilder addChallenge(Enemy enemy) {
         challenges.add(enemy);
         return this;
     }
 
+    //------------ Build Room Method -----------------
     public Room build() {
         Room room = new Room(description);
         for (IChallenge challenge : challenges) {
