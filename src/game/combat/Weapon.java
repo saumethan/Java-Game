@@ -7,15 +7,17 @@ package game.combat;
 
 public class Weapon {
 
-    //Variables
+    //------------ Variables -----------------
     private String description;
     private int baseDamage;
 
+    //------------ Constructor Method -----------------
     public Weapon(String description, int baseDamage) {
         this.description = description;
         this.baseDamage = baseDamage;
     }
 
+    //------------ Getter Methods -----------------
     public String getDescription() {
         return description;
     }
