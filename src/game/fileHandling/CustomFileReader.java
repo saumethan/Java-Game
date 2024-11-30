@@ -13,9 +13,9 @@ import java.util.Scanner;
 
 public class CustomFileReader {
 
+    //------------ File Reading Method -----------------
     public static ArrayList<IChallenge> readChallenges(String filePath) {
 
-        // Variables
         ArrayList<IChallenge> challenges = new ArrayList<>();
 
         try {
