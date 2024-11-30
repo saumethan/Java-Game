@@ -15,6 +15,7 @@ public class CustomFileReader {
 
     public static ArrayList<IChallenge> readChallenges(String filePath) {
 
+        // Variables
         ArrayList<IChallenge> challenges = new ArrayList<>();
 
         try {
