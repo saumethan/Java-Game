@@ -83,6 +83,7 @@ public class Room {
                     }
                     if (player.isAlive() && enemy.isCompleted()) {
                         System.out.println("You have killed the " + enemy.getDescription());
+                        enemy.addAttempt();
                         break;
                     } else {
                         player.setAlive();

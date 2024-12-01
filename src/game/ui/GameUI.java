@@ -32,6 +32,7 @@ public class GameUI {
 
     //------------ Get Input Method -----------------
     public void getInput() {
+        Game game = Game.getInstance();
         if (!Game.getInstance().isGameRunning() || !Game.getInstance().getPlayer().isAlive()) {
             return; 
         }
@@ -40,6 +41,7 @@ public class GameUI {
         while (true) {
             
             if (!Game.getInstance().isGameRunning() || !Game.getInstance().getPlayer().isAlive()) {
+                game.addLeaderboard(); 
                 break;  
             }
     
@@ -48,8 +50,7 @@ public class GameUI {
     
             if (input.equals("exit")) {
                 System.out.println("Exiting the game.");
-                Game game = Game.getInstance();
-                game.addLeaderboard(); 
+                game.addLeaderboard();
                 break;
             }
     

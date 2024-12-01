@@ -63,6 +63,10 @@ public class Enemy implements IChallenge, IHealth {
         takeDamage(amount);
     }
 
+    //------------ Add Attempt Method -----------------
+    public void addAttempt() {
+        attempts++;
+    }
     //------------ Take Damage Method -----------------
     public void takeDamage(int amount) {
         if (health - amount > 0) {
