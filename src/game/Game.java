@@ -38,6 +38,7 @@ public class Game implements UIObserver {
     // https://www.w3schools.com/java/java_date.asp
     private LocalDateTime currentDateTime;
     private DateTimeFormatter dateFormater;
+    private boolean awaitingPlayerName;
 
     //------------ Constructor Method -----------------
     private Game() {
@@ -68,21 +69,10 @@ public class Game implements UIObserver {
         return player;
     }
 
-    
-
     //------------ Start Game Method -----------------
     public void startGame() {
-        // Populate the room map
-        populateRooms();
-        // Add the player's commands to move
-        playerCommands((Player) player);
-
-        String playerName = gameUI.setPlayerName();
-        player.setName(playerName);
-
-        System.out.println("Welcome " + playerName + "!");
-
-        printCurrentRoom();
+        awaitingPlayerName = true;
+        System.out.println("Please enter your name:");
 
         gameUI.getInput();
     }
@@ -330,10 +320,26 @@ public class Game implements UIObserver {
 
     //------------ Update Method -----------------
     @Override
-    public void update(String commands) {
-        executeCommands(commands);
+    public void update(String command) {
+        if (awaitingPlayerName) {
+            String name = command.trim();
+            if (name.isEmpty()) {
+                name = "Guest"; 
+            }
+            player.setName(name);
+            awaitingPlayerName = false; 
+            System.out.println("Welcome, " + name + "!");
+
+            populateRooms();
+            playerCommands(player);
+            printCurrentRoom();
+            return;
+        }
+
+        executeCommands(command);
         printCurrentRoom();
     }
+
 
     //------------ Print Rooms Method -----------------
     public void printRooms() {

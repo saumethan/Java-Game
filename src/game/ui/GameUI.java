@@ -31,12 +31,12 @@ public class GameUI {
         }
     }
 
-    //------------ Input To Set Players Name Method -----------------
-    public String setPlayerName() {
-        System.out.println("Enter your name:");
-        String name = scanner.nextLine().trim();
-        return name;
-    }
+    // //------------ Input To Set Players Name Method -----------------
+    // public String setPlayerName() {
+    //     System.out.println("Enter your name:");
+    //     String name = scanner.nextLine().trim();
+    //     return name;
+    // }
 
     //------------ Get Input Method -----------------
     public void getInput() {
