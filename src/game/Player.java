@@ -95,11 +95,11 @@ public class Player implements IHealth {
     }
 
     //------------ Movement Methods -----------------
-    public void moveRight() {
-        if (currentRoom[0] < 3) {
+    public void moveRight(int rows) {
+        if (currentRoom[0] < rows - 1) {
             currentRoom[0] += 1;
         } else {
-            System.out.println("Can't move right");
+            System.out.println("There are no rooms to the right");
         }
     }
 
@@ -107,7 +107,7 @@ public class Player implements IHealth {
         if (currentRoom[0] > 0) {
             currentRoom[0] -= 1;
         } else {
-            System.out.println("Can't move left");
+            System.out.println("There are no rooms to the left");
         }
 
     }
@@ -116,15 +116,15 @@ public class Player implements IHealth {
         if (currentRoom[1] > 0) {
             currentRoom[1] -= 1;
         } else {
-            System.out.println("Can't move up");
+            System.out.println("There are no rooms in front");
         }
     }
 
-    public void moveBack() {
-        if (currentRoom[1] < 3) {
+    public void moveBack(int cols) {
+        if (currentRoom[1] < cols - 1) {
             currentRoom[1] += 1;
         } else {
-            System.out.println("Can't move down");
+            System.out.println("There are no rooms behind");
         }
     }
 

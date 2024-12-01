@@ -84,7 +84,7 @@ public class Game implements UIObserver {
         boolean gameCompleted = true;
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                System.out.println("Room (" + row + ", " + col + ")");
+                //System.out.println("Room (" + row + ", " + col + ")");
                 for (IChallenge challenge : roomMap[row][col].getChallenges()) {
                     
                     System.out.println("Challenge: " + challenge.getChallengeDescription());
@@ -195,7 +195,7 @@ public class Game implements UIObserver {
         addCommand("Move right", () -> {
             if (areAllChallengesCompleted()) {
                 player.resetHealth();
-                player.moveRight();
+                player.moveRight(rows);
             } else {
                 System.out.println("You cannot move until all challenges in this room are completed.");
             }
@@ -222,7 +222,7 @@ public class Game implements UIObserver {
         addCommand("Move back", () -> {
             if (areAllChallengesCompleted()) {
                 player.resetHealth();
-                player.moveBack();
+                player.moveBack(cols);
             } else {
                 System.out.println("You cannot move until all challenges in this room are completed.");
             }
