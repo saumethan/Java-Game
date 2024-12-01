@@ -6,6 +6,7 @@ import game.challenges.IChallenge;
 import game.challenges.Puzzle;
 import game.combat.Weapon;
 import game.fileHandling.CustomFileReader;
+import game.fileHandling.CustomFileWriter;
 import game.room.PhysicalRoomBuilder;
 import game.room.Room;
 import game.room.SkillRoomBuilder;
@@ -84,25 +85,24 @@ public class Game implements UIObserver {
         boolean gameCompleted = true;
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                //System.out.println("Room (" + row + ", " + col + ")");
                 for (IChallenge challenge : roomMap[row][col].getChallenges()) {
-                    
-                    System.out.println("Challenge: " + challenge.getChallengeDescription());
-                    
                     if (challenge.getAttempts() > 0) {
                         totalAttempts += challenge.getAttempts();
                         gameCompleted = true; 
-                        System.out.println("Attempts: " + challenge.getAttempts());
                     } else {
                         gameCompleted = false; 
-                        System.out.println("Attempts: Not Completed");
                     }
                 }
             }
         }
-    
-        System.out.println("Total Attempts: " + totalAttempts);
-        System.out.println("Game Completed: " + gameCompleted);
+        if (gameCompleted) {
+            CustomFileWriter.writeLeaderboard("Total Attempts: " + Integer.toString(totalAttempts));
+            System.out.println("Total Attempts: " + totalAttempts);
+        } else {
+            CustomFileWriter.writeLeaderboard("Game Not Completed");
+            System.out.println("Game not completed");
+        }
+        
     }
     
 
