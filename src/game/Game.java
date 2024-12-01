@@ -2,6 +2,8 @@ package game;
 
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import game.challenges.Enemy;
 import game.challenges.IChallenge;
 import game.challenges.Puzzle;
@@ -35,6 +37,7 @@ public class Game implements UIObserver {
     private Boolean gameRunning;
     // https://www.w3schools.com/java/java_date.asp
     private LocalDateTime currentDateTime;
+    private DateTimeFormatter dateFormater;
 
     //------------ Constructor Method -----------------
     private Game() {
@@ -49,6 +52,7 @@ public class Game implements UIObserver {
         gameUI = new GameUI();
         gameUI.addObserver(this);
         gameRunning = true;
+        dateFormater = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     }
 
     //------------ Singleton Get Instance Method -----------------
@@ -100,10 +104,10 @@ public class Game implements UIObserver {
         }
         currentDateTime = LocalDateTime.now();
         if (gameCompleted) {
-            CustomFileWriter.writeLeaderboard("Date : " + currentDateTime + ", Total Attempts: " + Integer.toString(totalAttempts));
+            CustomFileWriter.writeLeaderboard("Date : " + currentDateTime.format(dateFormater) + ", Total Attempts: " + Integer.toString(totalAttempts));
             System.out.println("Total Attempts: " + totalAttempts);
         } else {
-            CustomFileWriter.writeLeaderboard("Date : " + currentDateTime + ", Game Not Completed");
+            CustomFileWriter.writeLeaderboard("Date : " + currentDateTime.format(dateFormater) + ", Game Not Completed");
             System.out.println("Game not completed");
         }
         
