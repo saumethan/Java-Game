@@ -10,7 +10,7 @@ public class Puzzle implements IChallenge {
     private String description;
     private String question;
     private String answer;
-    private int attemps;
+    private int attempts;
     private boolean isCompleted;
 
     //------------ Constructor Method -----------------
@@ -18,7 +18,7 @@ public class Puzzle implements IChallenge {
         this.description = description;
         this.question = question;
         this.answer = answer;
-        attemps = 0;
+        attempts = 0;
         isCompleted = false;
     }
 
@@ -35,13 +35,13 @@ public class Puzzle implements IChallenge {
         return answer;
     }
 
-    public int getAttemps() {
-        return attemps;
+    public int getAttempts() {
+        return attempts;
     }
 
     //------------ Attempt Method -----------------
     public Boolean attempt(String amount) {
-        attemps++;
+        attempts++;
         if (amount.equals(answer)) {
             return true;
         } else {

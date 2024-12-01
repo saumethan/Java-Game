@@ -16,6 +16,7 @@ public class Enemy implements IChallenge, IHealth {
     private Weapon weapon;
     private int health;
     private Boolean isCompleted;
+    private int attempts; 
 
     //------------ Constructor Method -----------------
     public Enemy(String name, String description, Weapon weapon) {
@@ -24,6 +25,7 @@ public class Enemy implements IChallenge, IHealth {
         this.weapon = weapon;
         health = 100;
         isCompleted = false;
+        attempts = 0;
     }
 
     //------------ Getter Methods -----------------
@@ -45,6 +47,10 @@ public class Enemy implements IChallenge, IHealth {
 
     public int getBonusDamage() {
         return (int) (Math.random() * 21);
+    }
+
+    public int getAttempts() {
+        return attempts;
     }
 
     //------------ Setter Methods -----------------

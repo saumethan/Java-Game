@@ -11,4 +11,5 @@ public interface IChallenge {
     void setCompleted();
     String getChallengeDescription();
     String getDescription();
+    int getAttempts();
 }
