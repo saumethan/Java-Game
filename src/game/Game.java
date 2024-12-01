@@ -105,10 +105,10 @@ public class Game implements UIObserver {
         }
         currentDateTime = LocalDateTime.now();
         if (gameCompleted) {
-            CustomFileWriter.writeLeaderboard("Date : " + currentDateTime.format(dateFormater) + ", Challenges completed: " + completedChallenges + ", Total Attempts: " + Integer.toString(totalAttempts));
+            CustomFileWriter.writeLeaderboard("Name: " + player.getName() + "Date : " + currentDateTime.format(dateFormater) + ", Challenges completed: " + completedChallenges + ", Total Attempts: " + Integer.toString(totalAttempts));
             System.out.println("Total Attempts: " + totalAttempts);
         } else {
-            CustomFileWriter.writeLeaderboard("Date : " + currentDateTime.format(dateFormater) + ", Challenges completed: " + completedChallenges + ", Game Not Completed");
+            CustomFileWriter.writeLeaderboard("Name: " + player.getName() + ", Date : " + currentDateTime.format(dateFormater) + ", Challenges completed: " + completedChallenges + ", Game Not Completed");
             System.out.println("Game not completed");
         }
         
