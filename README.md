@@ -4,4 +4,3 @@
 
 - sort out formatting of prints
 - comment all code
-- leaderboard with atempts
