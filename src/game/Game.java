@@ -97,7 +97,9 @@ public class Game implements UIObserver {
                     if (challenge.getAttempts() > 0) {
                         totalAttempts += challenge.getAttempts();
                         gameCompleted = true;
-                        completedChallenges++; 
+                        if (challenge.isCompleted()) {
+                            completedChallenges++; 
+                        }
                     } else {
                         gameCompleted = false; 
                     }
