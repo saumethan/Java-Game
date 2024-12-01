@@ -78,6 +78,34 @@ public class Game implements UIObserver {
         System.out.println("The game has ended.");
     }
 
+    //------------ Add To Leaderboard Method -----------------
+    public void addLeaderboard() {
+        int totalAttempts = 0;
+        boolean gameCompleted = true;
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                System.out.println("Room (" + row + ", " + col + ")");
+                for (IChallenge challenge : roomMap[row][col].getChallenges()) {
+                    
+                    System.out.println("Challenge: " + challenge.getChallengeDescription());
+                    
+                    if (challenge.getAttempts() > 0) {
+                        totalAttempts += challenge.getAttempts();
+                        gameCompleted = true; 
+                        System.out.println("Attempts: " + challenge.getAttempts());
+                    } else {
+                        gameCompleted = false; 
+                        System.out.println("Attempts: Not Completed");
+                    }
+                }
+            }
+        }
+    
+        System.out.println("Total Attempts: " + totalAttempts);
+        System.out.println("Game Completed: " + gameCompleted);
+    }
+    
+
     //------------ Game Running Check Method -----------------
     public boolean isGameRunning() {
         return gameRunning;

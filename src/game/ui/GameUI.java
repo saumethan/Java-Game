@@ -48,6 +48,8 @@ public class GameUI {
     
             if (input.equals("exit")) {
                 System.out.println("Exiting the game.");
+                Game game = Game.getInstance();
+                game.addLeaderboard(); 
                 break;
             }
     
