@@ -1,6 +1,7 @@
 package game;
 
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 import game.challenges.Enemy;
 import game.challenges.IChallenge;
 import game.challenges.Puzzle;
@@ -32,6 +33,8 @@ public class Game implements UIObserver {
     private int cols;
     private GameUI gameUI;
     private Boolean gameRunning;
+    // https://www.w3schools.com/java/java_date.asp
+    private LocalDateTime currentDateTime;
 
     //------------ Constructor Method -----------------
     private Game() {
@@ -95,16 +98,16 @@ public class Game implements UIObserver {
                 }
             }
         }
+        currentDateTime = LocalDateTime.now();
         if (gameCompleted) {
-            CustomFileWriter.writeLeaderboard("Total Attempts: " + Integer.toString(totalAttempts));
+            CustomFileWriter.writeLeaderboard("Date : " + currentDateTime + ", Total Attempts: " + Integer.toString(totalAttempts));
             System.out.println("Total Attempts: " + totalAttempts);
         } else {
-            CustomFileWriter.writeLeaderboard("Game Not Completed");
+            CustomFileWriter.writeLeaderboard("Date : " + currentDateTime + ", Game Not Completed");
             System.out.println("Game not completed");
         }
         
     }
-    
 
     //------------ Game Running Check Method -----------------
     public boolean isGameRunning() {
