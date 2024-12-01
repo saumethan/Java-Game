@@ -89,13 +89,15 @@ public class Game implements UIObserver {
     //------------ Add To Leaderboard Method -----------------
     public void addLeaderboard() {
         int totalAttempts = 0;
+        int completedChallenges = 0;
         boolean gameCompleted = true;
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 for (IChallenge challenge : roomMap[row][col].getChallenges()) {
                     if (challenge.getAttempts() > 0) {
                         totalAttempts += challenge.getAttempts();
-                        gameCompleted = true; 
+                        gameCompleted = true;
+                        completedChallenges++; 
                     } else {
                         gameCompleted = false; 
                     }
@@ -104,10 +106,10 @@ public class Game implements UIObserver {
         }
         currentDateTime = LocalDateTime.now();
         if (gameCompleted) {
-            CustomFileWriter.writeLeaderboard("Date : " + currentDateTime.format(dateFormater) + ", Total Attempts: " + Integer.toString(totalAttempts));
+            CustomFileWriter.writeLeaderboard("Date : " + currentDateTime.format(dateFormater) + ", Challenges completed: " + completedChallenges + ", Total Attempts: " + Integer.toString(totalAttempts));
             System.out.println("Total Attempts: " + totalAttempts);
         } else {
-            CustomFileWriter.writeLeaderboard("Date : " + currentDateTime.format(dateFormater) + ", Game Not Completed");
+            CustomFileWriter.writeLeaderboard("Date : " + currentDateTime.format(dateFormater) + ", Challenges completed: " + completedChallenges + ", Game Not Completed");
             System.out.println("Game not completed");
         }
         
