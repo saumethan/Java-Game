@@ -12,6 +12,7 @@ public class GameUI {
 
     //------------ Variables -----------------
     private ArrayList<UIObserver> observers;
+    Scanner scanner = new Scanner(System.in);
 
     //------------ Constructor Method -----------------
     public GameUI() {
@@ -30,6 +31,13 @@ public class GameUI {
         }
     }
 
+    //------------ Input To Set Players Name Method -----------------
+    public String setPlayerName() {
+        System.out.println("Enter your name:");
+        String name = scanner.nextLine().trim();
+        return name;
+    }
+
     //------------ Get Input Method -----------------
     public void getInput() {
         Game game = Game.getInstance();
@@ -37,7 +45,6 @@ public class GameUI {
             return; 
         }
     
-        Scanner scanner = new Scanner(System.in);
         while (true) {
             
             if (!Game.getInstance().isGameRunning() || !Game.getInstance().getPlayer().isAlive()) {
