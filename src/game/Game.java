@@ -68,12 +68,19 @@ public class Game implements UIObserver {
         return player;
     }
 
+    
+
     //------------ Start Game Method -----------------
     public void startGame() {
         // Populate the room map
         populateRooms();
         // Add the player's commands to move
         playerCommands((Player) player);
+
+        String playerName = gameUI.setPlayerName();
+        player.setName(playerName);
+
+        System.out.println("Welcome " + playerName + "!");
 
         printCurrentRoom();
 

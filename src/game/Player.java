@@ -10,6 +10,7 @@ import game.health.IHealth;
 public class Player implements IHealth {
 
     //------------ Variables -----------------
+    private String name;
     private int[] currentRoom;
     private Weapon weapon;
     private int health;
@@ -20,6 +21,7 @@ public class Player implements IHealth {
 
     //------------ Constructor Method -----------------
     private Player() {
+        name = "Guest";
         currentRoom = new int[2];
         currentRoom[0] = 1;
         currentRoom[1] = 1;
@@ -58,6 +60,10 @@ public class Player implements IHealth {
         return lives;
     }
 
+    public String getName() {
+        return name;
+    }
+
     //------------ Setter Methods -----------------
     public void setAlive() {
         isAlive = true;
@@ -65,6 +71,10 @@ public class Player implements IHealth {
 
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     //------------ Remove Life Method -----------------
