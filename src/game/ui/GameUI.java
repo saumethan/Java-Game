@@ -51,8 +51,10 @@ public class GameUI {
                 game.addLeaderboard(); 
                 break;  
             }
-    
-            System.out.println("Enter a command:");
+            
+            if (game.isPrintCommand()){
+                System.out.println("Enter a command:");
+            }
             String input = scanner.nextLine().trim().toLowerCase(); 
     
             if (input.equals("exit")) {

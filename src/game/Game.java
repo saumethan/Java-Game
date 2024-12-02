@@ -39,6 +39,7 @@ public class Game implements UIObserver {
     private LocalDateTime currentDateTime;
     private DateTimeFormatter dateFormater;
     private boolean initialisingGame;
+    private boolean printCommand;
     private ArrayList<Weapon> weapons;
 
     //------------ Constructor Method -----------------
@@ -55,6 +56,7 @@ public class Game implements UIObserver {
         gameRunning = true;
         dateFormater = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         weapons = CustomFileReader.readPlayerWeapons("playerWeapons.txt");
+        printCommand = false;
     }
 
     //------------ Singleton Get Instance Method -----------------
@@ -68,6 +70,10 @@ public class Game implements UIObserver {
     //------------ Getter Methods -----------------
     public Player getPlayer() {
         return player;
+    }
+
+    public Boolean isPrintCommand() {
+        return printCommand;
     }
 
     //------------ Start Game Method -----------------
@@ -363,6 +369,8 @@ public class Game implements UIObserver {
                 return;
             }
         }
+
+        printCommand = true;
 
         if (player.getWeapon() == null) {
             int choice = Integer.parseInt(command.trim()) - 1;
