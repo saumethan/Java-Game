@@ -38,12 +38,12 @@ public class Game implements UIObserver {
     // https://www.w3schools.com/java/java_date.asp
     private LocalDateTime currentDateTime;
     private DateTimeFormatter dateFormater;
-    private boolean awaitingPlayerName;
+    private boolean initialisingGame;
+    private ArrayList<Weapon> weapons;
 
     //------------ Constructor Method -----------------
     private Game() {
         player = Player.getInstance();
-        player.setWeapon(new Weapon("Knife", 20));
         challenges = CustomFileReader.readChallenges("challenges.txt");
         userCommands = new ArrayList<>();
         commands = new ArrayList<>();
@@ -54,6 +54,10 @@ public class Game implements UIObserver {
         gameUI.addObserver(this);
         gameRunning = true;
         dateFormater = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        weapons = new ArrayList<>();
+        weapons.add(new Weapon("Sword", 23));
+        weapons.add(new Weapon("Axe", 21));
+        weapons.add(new Weapon("Bow", 22));
     }
 
     //------------ Singleton Get Instance Method -----------------
@@ -71,9 +75,8 @@ public class Game implements UIObserver {
 
     //------------ Start Game Method -----------------
     public void startGame() {
-        awaitingPlayerName = true;
-        System.out.println("Please enter your name:");
-
+        initialisingGame = true;
+        System.out.println("Please enter your name:");;
         gameUI.getInput();
     }
     
@@ -111,7 +114,6 @@ public class Game implements UIObserver {
             System.out.println("Total Attempts: " + totalAttempts);
         } else {
             CustomFileWriter.writeLeaderboard("Name: " + player.getName() + ", Date : " + currentDateTime.format(dateFormater) + ", Challenges completed: " + completedChallenges + ", Game Not Completed");
-            System.out.println("Game not completed");
         }
         
     }
@@ -334,15 +336,42 @@ public class Game implements UIObserver {
     //------------ Update Method -----------------
     @Override
     public void update(String command) {
-        if (awaitingPlayerName) {
+        if (initialisingGame) {
             String name = command.trim();
             if (name.isEmpty()) {
-                name = "Guest"; 
+                name = "Guest";
             }
             player.setName(name);
-            awaitingPlayerName = false; 
+            initialisingGame = false;
             System.out.println("Welcome, " + name + "!");
+            
+            if (player.getWeapon() == null) {
+                System.out.println("Choose your weapon:");
+                
+                for (int i = 0; i < weapons.size(); i++) {
+                    System.out.println((i + 1) + ". " + weapons.get(i).getDescription() + " (Damage: " + weapons.get(i).getBaseDamage() + ")");
+                }
+                
+                System.out.print("Enter the number of your weapon choice: ");
+                gameUI.getInput();
+                return;
+            }
+        }
 
+        if (player.getWeapon() == null) {
+            int choice = Integer.parseInt(command.trim()) - 1;
+            if (choice >= 0 && choice < weapons.size()) {
+                player.setWeapon(weapons.get(choice));
+                System.out.println("You have chosen: " + player.getWeapon().getDescription());
+                populateRooms();
+                playerCommands(player);
+                printCurrentRoom();
+                return;
+            } else {
+                System.out.println("Invalid choice. Default weapon selected: " + weapons.get(0).getDescription());
+                player.setWeapon(weapons.get(0));
+            }
+            
             populateRooms();
             playerCommands(player);
             printCurrentRoom();
@@ -352,6 +381,8 @@ public class Game implements UIObserver {
         executeCommands(command);
         printCurrentRoom();
     }
+
+
 
 
     //------------ Print Rooms Method -----------------
