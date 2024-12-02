@@ -74,7 +74,7 @@ public class Room {
                 System.out.println("Name: " + enemy.getChallengeDescription());
                 System.out.println("Your damage: " + player.attack());
                 System.out.println("Enemy's damage: " + enemy.attack());
-                System.out.print("Type fight to start: ");
+                System.out.print("Type \"fight\" to start: ");
                 String action = scanner.nextLine();
                 if (action.trim().toLowerCase().equals("fight")) {
                     while (player.isAlive() && !enemy.isCompleted()) {
