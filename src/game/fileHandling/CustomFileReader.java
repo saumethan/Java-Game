@@ -72,6 +72,34 @@ public class CustomFileReader {
     
         return leaderboard;
     }
+
+    public static ArrayList<Weapon> readPlayerWeapons(String filePath) {
+        ArrayList<Weapon> weapons = new ArrayList<>();
+    
+        try {
+            File myFile = new File(filePath);
+            Scanner myFileReader = new Scanner(myFile);
+
+            while (myFileReader.hasNextLine()) {
+                String data = myFileReader.nextLine().trim();
+
+                String[] weaponItems = data.split(",");
+                
+                if (weaponItems.length == 2) {
+                    String description = weaponItems[0].trim();
+                    String damage = weaponItems[1].trim();
+                    weapons.add(new Weapon(description, Integer.parseInt(damage)));
+                }
+            }
+
+            myFileReader.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Error occourred");
+            e.printStackTrace();
+        }
+        return weapons;
+    }
     
     
 }
