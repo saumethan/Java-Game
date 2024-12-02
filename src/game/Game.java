@@ -213,6 +213,7 @@ public class Game implements UIObserver {
         }
     }
 
+    //------------ List Commands Method -----------------
     public void listCommands() {
         System.out.println("Available commands:");
         for (String command : userCommands) {
