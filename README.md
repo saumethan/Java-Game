@@ -4,3 +4,4 @@
 
 - sort out formatting of prints
 - comment all code
+- fully test
