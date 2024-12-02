@@ -202,7 +202,14 @@ public class Game implements UIObserver {
         if (index > -1) {
             this.commands.get(index).execute();
         } else {
-            System.out.println("Command not recognized: " + commandInput);
+            listCommands();
+        }
+    }
+
+    public void listCommands() {
+        System.out.println("Available commands:");
+        for (String command : userCommands) {
+            System.out.println("- " + command);
         }
     }
 
