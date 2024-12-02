@@ -23,7 +23,7 @@ public class Enemy implements IChallenge, IHealth {
         this.name = name;
         this.description = description;
         this.weapon = weapon;
-        health = 100;
+        health = INITIAL_HEALTH;
         isCompleted = false;
         attempts = 0;
     }

@@ -24,7 +24,7 @@ public class Player implements IHealth {
         currentRoom = new int[2];
         currentRoom[0] = 1;
         currentRoom[1] = 1;
-        health = 100;
+        health = INITIAL_HEALTH;
         isAlive = true;
         lives = 3;
     }

@@ -7,6 +7,7 @@ package game.health;
 
 public interface IHealth {
 
+    final int INITIAL_HEALTH = 100;
+    
     int getHealth();
-    void heal(int healAmount);
 }
