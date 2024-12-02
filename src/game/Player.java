@@ -4,7 +4,7 @@ import game.health.IHealth;
 
 /*
  * @author Ethan Saum (2304185) @saumethan272 
- * 30/11/2024
+ * 02/12/2024
  */
 
 public class Player implements IHealth {
@@ -62,6 +62,10 @@ public class Player implements IHealth {
 
     public String getName() {
         return name;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
     }
 
     //------------ Setter Methods -----------------
