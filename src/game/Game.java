@@ -219,6 +219,8 @@ public class Game implements UIObserver {
 
         addCommand("Print leaderboard", this::printLeaderboard);
 
+        addCommand("List commands", this::listCommands);
+
         addCommand("Move right", () -> {
             if (areAllChallengesCompleted()) {
                 player.resetHealth();
