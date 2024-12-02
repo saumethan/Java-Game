@@ -54,10 +54,7 @@ public class Game implements UIObserver {
         gameUI.addObserver(this);
         gameRunning = true;
         dateFormater = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        weapons = new ArrayList<>();
-        weapons.add(new Weapon("Sword", 23));
-        weapons.add(new Weapon("Axe", 21));
-        weapons.add(new Weapon("Bow", 22));
+        weapons = CustomFileReader.readPlayerWeapons("playerWeapons.txt");
     }
 
     //------------ Singleton Get Instance Method -----------------
