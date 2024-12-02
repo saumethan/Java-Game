@@ -79,6 +79,7 @@ public class Game implements UIObserver {
     //------------ Start Game Method -----------------
     public void startGame() {
         initialisingGame = true;
+        System.out.println("-----------------------------------------------");
         System.out.println("Please enter your name:");;
         gameUI.getInput();
     }
@@ -374,7 +375,7 @@ public class Game implements UIObserver {
                     System.out.println((i + 1) + ". " + weapons.get(i).getDescription() + " (Damage: " + weapons.get(i).getBaseDamage() + ")");
                 }
                 
-                System.out.print("Enter the number of your weapon choice: ");
+                System.out.println("Enter the number of your weapon choice: ");
                 gameUI.getInput();
                 return;
             }
