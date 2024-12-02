@@ -50,4 +50,28 @@ public class CustomFileReader {
         }
         return challenges;
     } 
+
+    public static ArrayList<String> readLeaderboard(String filePath) {
+        ArrayList<String> leaderboard = new ArrayList<>();
+    
+        try {
+            File myFile = new File(filePath);
+            Scanner myFileReader = new Scanner(myFile);
+    
+            while (myFileReader.hasNextLine()) {
+                String data = myFileReader.nextLine().trim();
+    
+                leaderboard.add(data);
+            }
+    
+            myFileReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Error occurred: File not found");
+            e.printStackTrace();
+        }
+    
+        return leaderboard;
+    }
+    
+    
 }

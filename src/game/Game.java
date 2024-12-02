@@ -116,7 +116,11 @@ public class Game implements UIObserver {
 
     //------------ Print Leaderboard Method -----------------
     public void printLeaderboard() {
-        System.out.println("leaderboared");
+        ArrayList<String> leaderboard = CustomFileReader.readLeaderboard("leaderBoard.txt");
+        System.out.println("===== Leaderboard =====");
+        for (String entry : leaderboard) {
+            System.out.println(entry);
+        }
     }
 
     //------------ Game Running Check Method -----------------
