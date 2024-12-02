@@ -141,12 +141,13 @@ public class Player implements IHealth {
         return weapon.getBaseDamage() + getBonusDamage();
     }
 
-    //------------ Heal Method -----------------
-    public void heal(int healAmount) {
-        if (health + healAmount < 100) {
-            health += healAmount;
-        } else {
-            health = 100;
-        }
-    }
+    // //------------ Heal Method -----------------
+    // // Not currently used
+    // public void heal(int healAmount) {
+    //     if (health + healAmount < 100) {
+    //         health += healAmount;
+    //     } else {
+    //         health = 100;
+    //     }
+    // }
 }
