@@ -149,7 +149,7 @@ public class Game implements UIObserver {
                     Puzzle challenge = puzzles.get(randomIndex);
                     puzzles.remove(randomIndex);
                     room = new SkillRoomBuilder()
-                    .setDescription("   You are in a dark dungeon ")
+                        .setDescription("   You are in a dark dungeon ")
                         .addChallenge(challenge)
                         .build();
                 } else {
@@ -160,7 +160,7 @@ public class Game implements UIObserver {
                     Enemy enemyChallenge = enemies.get(randomIndexEnemies);
                     enemies.remove(randomIndexEnemies);
                     room = new UltimateRoomBuilder()
-                    .setDescription("   You are in a dark dungeon ")
+                        .setDescription("   You are in a dark dungeon ")
                         .addChallenge(puzzleChallenge)
                         .addChallenge(enemyChallenge)
                         .build();
