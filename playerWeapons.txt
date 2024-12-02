@@ -1,10 +1,10 @@
-Deadly Sword,20
-Swift Dagger,12
-Heavy Axe,25
-Piercing Spear,18
-Flame-Edge Katana,22
-Thunder Hammer,30
-Poisoned Blade,15
-Crystal Bow,17
-War Mace,28
-Shadow Scythe,24
+Deadly sword, 20
+Shadow bow, 15
+Thunder axe, 30
+Flame dagger, 18
+Ice spear, 22
+Venomous whip, 12
+Steel mace, 25
+Crystal staff, 10
+Dragonclaw gauntlet, 35
+Phantom scythe, 28
