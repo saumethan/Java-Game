@@ -14,7 +14,6 @@ public class Player implements IHealth {
     private int[] currentRoom;
     private Weapon weapon;
     private int health;
-    private int level;
     private Boolean isAlive;
     private int lives;
     private static Player instance;
@@ -26,7 +25,6 @@ public class Player implements IHealth {
         currentRoom[0] = 1;
         currentRoom[1] = 1;
         health = 100;
-        level = 1;
         isAlive = true;
         lives = 3;
     }
@@ -42,10 +40,6 @@ public class Player implements IHealth {
     //------------ Getter Methods -----------------
     public int getHealth() {
         return health;
-    }
-
-    public int getLevel() {
-        return level;
     }
 
     public int[] getCurrentRoom() {
