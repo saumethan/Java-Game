@@ -81,6 +81,8 @@ public class Game implements UIObserver {
     public void stopGame() {
         gameRunning = false;
         System.out.println("The game has ended.");
+        addLeaderboard();
+        printLeaderboard();
     }
 
     //------------ Add To Leaderboard Method -----------------

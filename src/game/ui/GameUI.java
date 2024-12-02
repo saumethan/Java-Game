@@ -57,7 +57,7 @@ public class GameUI {
     
             if (input.equals("exit")) {
                 System.out.println("Exiting the game.");
-                game.addLeaderboard();
+                game.stopGame();
                 break;
             }
     
