@@ -38,8 +38,8 @@ public class Game implements UIObserver {
     // https://www.w3schools.com/java/java_date.asp
     private LocalDateTime currentDateTime;
     private DateTimeFormatter dateFormater;
-    private boolean initialisingGame;
-    private boolean printCommand;
+    private Boolean initialisingGame;
+    private Boolean printCommand;
     private ArrayList<Weapon> weapons;
 
     //------------ Constructor Method -----------------
