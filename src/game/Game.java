@@ -114,6 +114,11 @@ public class Game implements UIObserver {
         
     }
 
+    //------------ Print Leaderboard Method -----------------
+    public void printLeaderboard() {
+        System.out.println("leaderboared");
+    }
+
     //------------ Game Running Check Method -----------------
     public boolean isGameRunning() {
         return gameRunning;
@@ -199,6 +204,8 @@ public class Game implements UIObserver {
     //------------ Players Commands Method -----------------
     private void playerCommands(Player player) {
         addCommand("Start challenge", this::startCurrentRoomChallenge);
+
+        addCommand("Print leaderboard", this::printLeaderboard);
 
         addCommand("Move right", () -> {
             if (areAllChallengesCompleted()) {
