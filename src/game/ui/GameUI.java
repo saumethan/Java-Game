@@ -53,7 +53,7 @@ public class GameUI {
             }
             
             if (game.isPrintCommand()){
-                System.out.println("Enter a command:");
+                System.out.println("Enter a command (type \"list\" to see commands):");
             }
             String input = scanner.nextLine().trim().toLowerCase(); 
     

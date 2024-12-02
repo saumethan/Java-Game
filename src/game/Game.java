@@ -224,9 +224,9 @@ public class Game implements UIObserver {
     private void playerCommands(Player player) {
         addCommand("Start challenge", this::startCurrentRoomChallenge);
 
-        addCommand("list", this::printLeaderboard);
+        addCommand("Print leaderboard", this::printLeaderboard);
 
-        addCommand("List commands", this::listCommands);
+        addCommand("List", this::listCommands);
 
         addCommand("Move right", () -> {
             if (areAllChallengesCompleted()) {
