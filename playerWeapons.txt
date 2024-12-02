@@ -1,0 +1,10 @@
+Deadly Sword,20
+Swift Dagger,12
+Heavy Axe,25
+Piercing Spear,18
+Flame-Edge Katana,22
+Thunder Hammer,30
+Poisoned Blade,15
+Crystal Bow,17
+War Mace,28
+Shadow Scythe,24
