@@ -79,7 +79,9 @@ public class Room {
                 if (action.trim().toLowerCase().equals("fight")) {
                     while (player.isAlive() && !enemy.isCompleted()) {
                         enemy.takeDamage(player.attack());
-                        player.takeDamage(enemy.attack());
+                        if (!enemy.isCompleted()) {
+                            player.takeDamage(enemy.attack());
+                        }
                     }
                     if (player.isAlive() && enemy.isCompleted()) {
                         System.out.println("You have killed the " + enemy.getDescription());
