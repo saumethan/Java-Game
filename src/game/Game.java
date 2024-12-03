@@ -128,7 +128,7 @@ public class Game implements UIObserver {
     }
 
     //------------ Game Running Check Method -----------------
-    public boolean isGameRunning() {
+    public Boolean isGameRunning() {
         return gameRunning;
     }
 
