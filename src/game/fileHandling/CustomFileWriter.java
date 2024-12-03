@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public class CustomFileWriter {
 
+    
+    //------------ Leaderboard File writing Method -----------------
     public static void writeLeaderboard(String result) {
         try {
             FileWriter myWriter = new FileWriter("leaderBoard.txt", true);

@@ -7,7 +7,9 @@ import game.Game;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        // Get Instance of Game
         Game game = Game.getInstance();
+        // Start game
         game.startGame();
     }
 }

@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class CustomFileReader {
 
-    //------------ File Reading Method -----------------
+    //------------ Challenge File Reading Method -----------------
     public static ArrayList<IChallenge> readChallenges(String filePath) {
 
         ArrayList<IChallenge> challenges = new ArrayList<>();
@@ -51,6 +51,8 @@ public class CustomFileReader {
         return challenges;
     } 
 
+    
+    //------------ Leaderboard File Reading Method -----------------
     public static ArrayList<String> readLeaderboard(String filePath) {
         ArrayList<String> leaderboard = new ArrayList<>();
     
@@ -73,6 +75,8 @@ public class CustomFileReader {
         return leaderboard;
     }
 
+    
+    //------------ Weapopns File Reading Method -----------------
     public static ArrayList<Weapon> readPlayerWeapons(String filePath) {
         ArrayList<Weapon> weapons = new ArrayList<>();
     
