@@ -442,6 +442,4 @@ public class Game implements UIObserver {
     //         }
     //     }
     // }
-
-    //------------ Summary Method -----------------
 }
