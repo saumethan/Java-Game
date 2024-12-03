@@ -72,8 +72,8 @@ public class Room {
                 Enemy enemy = (Enemy) challenge;
                 System.out.println("You've encounter a " + enemy.getDescription());
                 System.out.println("Name: " + enemy.getChallengeDescription());
-                System.out.println("Your damage: " + player.attack());
-                System.out.println("Enemy's damage: " + enemy.attack());
+                System.out.println("Your base damage: " + player.getWeapon().getBaseDamage());
+                System.out.println("Enemy's base damage: " + enemy.getWeapon().getBaseDamage());
                 System.out.print("Type \"fight\" to start: ");
                 String action = scanner.nextLine();
                 if (action.trim().toLowerCase().equals("fight")) {
