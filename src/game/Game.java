@@ -98,7 +98,9 @@ public class Game implements UIObserver {
                 for (IChallenge challenge : roomMap[row][col].getChallenges()) {
                     if (challenge.getAttempts() > 0) {
                         totalAttempts += challenge.getAttempts();
-                        gameCompleted = true;
+                        if (areAllChallengesCompletedInAllRooms()) {
+                            gameCompleted = true;
+                        }
                         if (challenge.isCompleted()) {
                             completedChallenges++; 
                         }
@@ -111,7 +113,6 @@ public class Game implements UIObserver {
         currentDateTime = LocalDateTime.now();
         if (gameCompleted) {
             CustomFileWriter.writeLeaderboard("Name: " + player.getName() + ", Date : " + currentDateTime.format(dateFormater) + ", Challenges completed: " + completedChallenges + ", Total Attempts: " + Integer.toString(totalAttempts));
-            System.out.println("Total Attempts: " + totalAttempts);
         } else {
             CustomFileWriter.writeLeaderboard("Name: " + player.getName() + ", Date : " + currentDateTime.format(dateFormater) + ", Challenges completed: " + completedChallenges + ", Game Not Completed");
         }
