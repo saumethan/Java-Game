@@ -286,7 +286,7 @@ public class Game implements UIObserver {
     }
 
     //------------ Are All Challenges In Current Room Complete Check Method -----------------
-    private boolean areAllChallengesCompleted() {
+    private Boolean areAllChallengesCompleted() {
         int[] currentRoom = player.getCurrentRoom(); 
         int row = currentRoom[0];
         int col = currentRoom[1];
@@ -301,7 +301,7 @@ public class Game implements UIObserver {
     }
 
     //------------ Are All Challenges In All Rooms Complete Check Method -----------------
-    private boolean areAllChallengesCompletedInAllRooms() {
+    private Boolean areAllChallengesCompletedInAllRooms() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 Room room = roomMap[row][col];
@@ -316,7 +316,7 @@ public class Game implements UIObserver {
     }
 
     //------------ Ckeck if a String Is a Intager Method -----------------
-    public static boolean isInteger(String string) {
+    public static Boolean isInteger(String string) {
         try {
             Integer.parseInt(string); 
             return true; 
@@ -341,7 +341,7 @@ public class Game implements UIObserver {
         int[] currentRoom = player.getCurrentRoom();
         int row = currentRoom[0];
         int col = currentRoom[1];
-        boolean allChallengesCompleted = false;
+        Boolean allChallengesCompleted = false;
         Room room = roomMap[row][col];
 
         for (IChallenge challenge : room.getChallenges()) {
