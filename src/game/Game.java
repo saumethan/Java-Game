@@ -271,12 +271,6 @@ public class Game implements UIObserver {
     //------------ Start Current Rooms Challenges Method -----------------
     private void startCurrentRoomChallenge() {
 
-        if (!player.isAlive()) {
-            System.out.println("Game Over! You are dead.");
-            stopGame();
-            return;
-        }
-
         int[] currentRoom = player.getCurrentRoom(); 
         int row = currentRoom[0];
         int col = currentRoom[1];
