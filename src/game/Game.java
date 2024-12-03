@@ -72,10 +72,6 @@ public class Game implements UIObserver {
         return player;
     }
 
-    public Boolean isPrintCommand() {
-        return printCommand;
-    }
-
     //------------ Start Game Method -----------------
     public void startGame() {
         initialisingGame = true;
@@ -134,6 +130,11 @@ public class Game implements UIObserver {
     //------------ Game Running Check Method -----------------
     public boolean isGameRunning() {
         return gameRunning;
+    }
+
+    //------------ Print Command Check Method -----------------
+    public Boolean isPrintCommand() {
+        return printCommand;
     }
 
     //------------ Populate Rooms Method -----------------
