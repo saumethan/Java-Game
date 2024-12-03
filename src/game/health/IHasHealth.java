@@ -5,7 +5,7 @@ package game.health;
  * 30/11/2024
  */
 
-public interface IHealth {
+public interface IHasHealth {
 
     final int INITIAL_HEALTH = 100;
     

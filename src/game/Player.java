@@ -1,13 +1,13 @@
 package game;
 import game.combat.Weapon;
-import game.health.IHealth;
+import game.health.IHasHealth;
 
 /*
  * @author Ethan Saum (2304185) @saumethan272 
  * 02/12/2024
  */
 
-public class Player implements IHealth {
+public class Player implements IHasHealth {
 
     //------------ Variables -----------------
     private String name;

@@ -1,14 +1,14 @@
 package game.challenges;
 
 import game.combat.Weapon;
-import game.health.IHealth;
+import game.health.IHasHealth;
 
 /*
  * @author Ethan Saum (2304185) @saumethan272 
  * 30/11/2024
  */
 
-public class Enemy implements IChallenge, IHealth {
+public class Enemy implements IChallenge, IHasHealth {
 
     //------------ Variables -----------------
     private String name;
