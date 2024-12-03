@@ -444,7 +444,4 @@ public class Game implements UIObserver {
     // }
 
     //------------ Summary Method -----------------
-    public void summary() {
-
-    }
 }
