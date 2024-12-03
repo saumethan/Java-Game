@@ -417,31 +417,31 @@ public class Game implements UIObserver {
 
 
 
-    //------------ Print Rooms Method -----------------
-    public void printRooms() {
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-                Room room = roomMap[row][col];
-                System.out.println("Room at (" + row + ", " + col + "): " + room.getDescription());
+    // //------------ Print Rooms Method -----------------
+    // public void printRooms() {
+    //     for (int row = 0; row < rows; row++) {
+    //         for (int col = 0; col < cols; col++) {
+    //             Room room = roomMap[row][col];
+    //             System.out.println("Room at (" + row + ", " + col + "): " + room.getDescription());
                 
-                // Print challenges in rooms
-                System.out.println("Challenges in this room:");
-                for (IChallenge challenge : room.getChallenges()) {
-                    if (challenge.isCompleted() != true) {
-                        System.out.println(" - " + challenge.getDescription());
-                        if (challenge instanceof Puzzle) {
-                            Puzzle puzzle = (Puzzle) challenge;
-                            System.out.println("   Puzzle answer: " + puzzle.getAnswer());
-                        } else if (challenge instanceof Enemy) {
-                            Enemy enemy = (Enemy) challenge;
-                            System.out.println("   Enemy: " + enemy.getDescription() + ", Weapon: " + enemy.getWeapon().getDescription());
-                        }
-                    }
-                }
-                System.out.println();
-            }
-        }
-    }
+    //             // Print challenges in rooms
+    //             System.out.println("Challenges in this room:");
+    //             for (IChallenge challenge : room.getChallenges()) {
+    //                 if (challenge.isCompleted() != true) {
+    //                     System.out.println(" - " + challenge.getDescription());
+    //                     if (challenge instanceof Puzzle) {
+    //                         Puzzle puzzle = (Puzzle) challenge;
+    //                         System.out.println("   Puzzle answer: " + puzzle.getAnswer());
+    //                     } else if (challenge instanceof Enemy) {
+    //                         Enemy enemy = (Enemy) challenge;
+    //                         System.out.println("   Enemy: " + enemy.getDescription() + ", Weapon: " + enemy.getWeapon().getDescription());
+    //                     }
+    //                 }
+    //             }
+    //             System.out.println();
+    //         }
+    //     }
+    // }
 
     //------------ Summary Method -----------------
     public void summary() {
