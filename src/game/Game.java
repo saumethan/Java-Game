@@ -110,7 +110,7 @@ public class Game implements UIObserver {
         }
         currentDateTime = LocalDateTime.now();
         if (gameCompleted) {
-            CustomFileWriter.writeLeaderboard("Name: " + player.getName() + "Date : " + currentDateTime.format(dateFormater) + ", Challenges completed: " + completedChallenges + ", Total Attempts: " + Integer.toString(totalAttempts));
+            CustomFileWriter.writeLeaderboard("Name: " + player.getName() + ", Date : " + currentDateTime.format(dateFormater) + ", Challenges completed: " + completedChallenges + ", Total Attempts: " + Integer.toString(totalAttempts));
             System.out.println("Total Attempts: " + totalAttempts);
         } else {
             CustomFileWriter.writeLeaderboard("Name: " + player.getName() + ", Date : " + currentDateTime.format(dateFormater) + ", Challenges completed: " + completedChallenges + ", Game Not Completed");
@@ -379,7 +379,7 @@ public class Game implements UIObserver {
             int choice;
 
             try {
-                choice = Integer.parseInt(command);  
+                choice = Integer.parseInt(command) - 1;
             } catch (NumberFormatException e) {
                 choice = 0;
             }
