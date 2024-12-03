@@ -314,16 +314,6 @@ public class Game implements UIObserver {
         }
         return true;  
     }
-
-    //------------ Ckeck if a String Is a Intager Method -----------------
-    public static Boolean isInteger(String string) {
-        try {
-            Integer.parseInt(string); 
-            return true; 
-        } catch (NumberFormatException e) {
-            return false; 
-        }
-    }
     
     //------------ Print Current Room Method -----------------
     public void printCurrentRoom() {
@@ -387,11 +377,13 @@ public class Game implements UIObserver {
 
         if (player.getWeapon() == null) {
             int choice;
-            if (isInteger(command)) {
-                choice = Integer.parseInt(command.trim()) - 1;
-            } else {
+
+            try {
+                choice = Integer.parseInt(command);  
+            } catch (NumberFormatException e) {
                 choice = 0;
             }
+
             if (choice >= 0 && choice < weapons.size()) {
                 player.setWeapon(weapons.get(choice));
                 System.out.println("You have chosen: " + player.getWeapon().getDescription());
