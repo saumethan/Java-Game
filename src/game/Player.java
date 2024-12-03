@@ -99,7 +99,6 @@ public class Player implements IHasHealth {
         if (health - amount > 0) {
             health-=amount;
         } else {
-            health = 0;
             isAlive = false;
         }
     }
