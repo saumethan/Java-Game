@@ -48,7 +48,6 @@ public class GameUI {
         while (true) {
             
             if (!Game.getInstance().isGameRunning() || !Game.getInstance().getPlayer().isAlive()) {
-                game.stopGame(); 
                 break;  
             }
             
