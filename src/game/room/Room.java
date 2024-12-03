@@ -27,16 +27,16 @@ public class Room {
     //------------ Getter Methods -----------------
     public String getDescription() {
         String output = description;
-    for (int i = 0; i < challenges.size(); i++) {
-        if (!challenges.get(i).isCompleted()) {
-            output += "with a ";
-            output += challenges.get(i).getDescription();
-            if (i < challenges.size() - 1) { 
-                output += " and ";
+        for (int i = 0; i < challenges.size(); i++) {
+            if (!challenges.get(i).isCompleted()) {
+                output += "with a ";
+                output += challenges.get(i).getDescription();
+                if (i < challenges.size() - 1) { 
+                    output += " and ";
+                }
             }
         }
-    }
-    return output;
+        return output;
     }
 
     public ArrayList<IChallenge> getChallenges() {

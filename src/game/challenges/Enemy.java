@@ -85,13 +85,4 @@ public class Enemy implements IChallenge, IHealth {
     public Boolean isCompleted() {
         return isCompleted;
     }
-
-    //------------ Heal Method -----------------
-    public void heal(int healAmount) {
-        if (health + healAmount < 100) {
-            health += healAmount;
-        } else {
-            health = 100;
-        }
-    }
 }
