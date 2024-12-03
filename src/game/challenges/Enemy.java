@@ -72,6 +72,7 @@ public class Enemy implements IChallenge, IHealth {
         if (health - amount > 0) {
             health-=amount;
         } else {
+            health = 0;
             isCompleted = true;
         }
     }

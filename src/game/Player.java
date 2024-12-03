@@ -65,6 +65,7 @@ public class Player implements IHealth {
     //------------ Setter Methods -----------------
     public void setAlive() {
         isAlive = true;
+        health = INITIAL_HEALTH;
     }
 
     public void setWeapon(Weapon weapon) {
@@ -98,6 +99,7 @@ public class Player implements IHealth {
         if (health - amount > 0) {
             health-=amount;
         } else {
+            health = 0;
             isAlive = false;
         }
     }
